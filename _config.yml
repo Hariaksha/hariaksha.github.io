@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # Currently available options are "default", "air"
-title                    : "Hari Gunda"
+title                    : "Research"
 title_separator          : "-"
 name                     : &name "Hari Gunda"
 description              : &description "Academic Portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
@@ -23,10 +23,10 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "images/profile.png"
+  avatar           : "profile.png"
   name             : "Hari Gunda"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  pronouns         : "he/him"  
+  bio              : "Boren and Gilman Research Scholar"
   location         : "Tuscaloosa, Alabama, USA"
   employer         : "The University of Alabama"
   uri              : # URL
@@ -57,11 +57,11 @@ author:
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
-  goodreads        : "165388788"
+  goodreads        : "hariaksha"
   google_plus      : # Username
   keybase          : # Username
   instagram        : # Username
