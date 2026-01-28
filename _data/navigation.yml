@@ -20,10 +20,13 @@ main:
   - title: "Portfolio"
     url: /portfolio/
         
-  - title: "Blog"
-    url: /year-archive/
+  # - title: "Blog"
+  #   url: /year-archive/
     
   - title: "CV"
+    url: /files/resume.pdf
+    
+  - title: "Bookbinding"
     url: /files/resume.pdf
     
   # - title: "CV"
