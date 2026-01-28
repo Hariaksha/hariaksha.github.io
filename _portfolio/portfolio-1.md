@@ -9,5 +9,3 @@ While working as a Visiting Researcher at the Paderborn Research Center for Sust
 From survey data from over 1,200 German firms, we have information about uncertainty/certainty about how this regulation impacts various business behaviors, such as adjusting workforce numbers, increasing funding for AI/innovation, and sharing data with research institutions. 
 
 We aim to determine how the GDPR and firm certainty around it influences company behaviors; in pursuit of this goal, we train and test a machine learning classification model (logistic regression) that uses firm characteristics and survey responses to determine whether or not a firm is more or less likely to commit certain business behaviors. Eventually, we will determine how this data protection policy and the surrounding uncertainty impacts energy and sustainability policy within firms.
-
-This project is ongoing.
