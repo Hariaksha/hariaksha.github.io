@@ -22,6 +22,9 @@ main:
         
   # - title: "Blog"
   #   url: /year-archive/
+
+  - title: "Awards"
+    url: /awards/
     
   - title: "CV"
     url: /files/resume.pdf
