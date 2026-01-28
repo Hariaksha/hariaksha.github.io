@@ -30,7 +30,7 @@ main:
     url: /files/resume.pdf
     
   - title: "Bookbinding"
-    url: /files/resume.pdf
+    url: /bookbinding/
     
   # - title: "CV"
   #   url: /cv-json/
