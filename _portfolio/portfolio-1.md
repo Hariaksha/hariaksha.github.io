@@ -1,6 +1,6 @@
 ---
 title: "Impact of EU GDPR On Energy Policy and Other Company Behaviors"
-excerpt: "May 2025 - Ongoing, Paderborn Research Center for Sustainable Economy<br/><img src='/images/GDPR.jpg' width='50%' alt = 'GDPR'>"
+excerpt: "May 2025 - Ongoing, Paderborn Research Center for Sustainable Economy<br/><img src='/images/GDPR.jpg' width='50%' style='margin-top: 20px;' alt = 'GDPR'>"
 collection: portfolio
 ---
 
