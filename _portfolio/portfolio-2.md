@@ -1,6 +1,6 @@
 ---
 title: "Determining Motivations behind Charitable Donations and Factors Leading to Fundraising Success"
-excerpt: "January 2024 - Ongoing, Culverhouse College of Business<br/><img src='/images/urca-2024.jpeg' width="50%" style='margin-top: 20px;' alt = 'Poster Presentation'>"
+excerpt: "January 2024 - Ongoing, Culverhouse College of Business<br/><img src='/images/urca-2024.jpeg' width='50%' style='margin-top: 20px;' alt = 'Poster Presentation'>"
 collection: portfolio
 ---
 
