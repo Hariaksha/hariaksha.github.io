@@ -305,6 +305,13 @@ defaults:
       layout: single
       author_profile: true
       share: true
+  - scope:
+      path: ""
+      type: bookbinding
+    values:
+      layout: single
+      author_profile: true
+      share: true
 
 
 # Sass/SCSS
