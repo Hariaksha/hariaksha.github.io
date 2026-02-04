@@ -1,6 +1,6 @@
 ---
 title: "East Asian (Double-Leaved) Accordions"
-excerpt: "<br/><img src='/images/book-arts/accordion/top2.jpeg'>"
+excerpt: "<br/><img src='/images/book-arts/accordion/top2.jpeg' width='300'>"
 collection: bookbinding
 ---
 
