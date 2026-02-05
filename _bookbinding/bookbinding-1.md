@@ -18,4 +18,4 @@ I found this type of book simple yet elegant, and I was happy when I saw my fina
 ![East Asian Accordion Two-Page Spread](/images/book-arts/accordion/2-page-spread4.jpeg)
 
 <p style="text-align: center;"><strong>Cover</strong></p>
-![East Asian Accordion Cover](/images/book-arts/accordion/cover.jpeg)
+![East Asian Accordion Cover](/images/book-arts/accordion/cover3.jpeg)
