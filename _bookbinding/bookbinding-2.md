@@ -1,6 +1,6 @@
 ---
 title: "Chinese Flutter Books"
-excerpt: "enter excerpt here later<br/><img src='/images/book-arts/flutterbook/cover.jpeg' width='300'>"
+excerpt: "<br/><img src='/images/book-arts/flutterbook/cover.jpeg' width='300'>"
 collection: bookbinding
 ---
 
