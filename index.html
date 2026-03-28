@@ -22,6 +22,23 @@
       --serif:        'EB Garamond', Georgia, serif;
       --sans:         'Inter', system-ui, sans-serif;
     }
+    /* ── Dark Mode ── */
+    [data-theme="dark"] {
+      --bg:           #0F0F0D;
+      --bg-alt:       #1A1A17;
+      --text:         #E8E8E3;
+      --muted:        #8A8A82;
+      --accent:       #6BBF87;
+      --accent-light: #1A2E22;
+      --accent-mid:   #4A8C62;
+      --border:       #2A2A26;
+    }
+    [data-theme="dark"] nav {
+      background: rgba(15,15,13,0.93);
+    }
+    [data-theme="dark"] .social-link,
+    [data-theme="dark"] .meeting-card { background: var(--bg-alt); }
+    [data-theme="dark"] .btn-secondary { color: var(--text); }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 17px; }
     body {
@@ -297,6 +314,13 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="assets/files/HariakshaGundaInternshipResume.pdf" target="_blank">CV ↗</a></li>
     </ul>
+      <button id="theme-toggle" aria-label="Toggle dark mode" style="
+      background: none; border: 1px solid var(--border); border-radius: 6px;
+      cursor: pointer; padding: 0.3rem 0.6rem; color: var(--muted);
+      font-size: 0.85rem; transition: all .2s; margin-left: 1rem;
+    ">
+      <i class="fas fa-moon" id="theme-icon"></i>
+      </button> 
   </div>
 </nav>
 
@@ -690,6 +714,22 @@ function toggleAbstract(btn) {
       if (a.getAttribute('href') === '#' + cur) a.classList.add('active');
     });
   }, { passive: true });
+  // Dark mode toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon   = document.getElementById('theme-icon');
+
+  // Remember preference across page loads
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next    = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    themeIcon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  });
 </script>
 
 </body>
