@@ -266,6 +266,19 @@
       .tl-item { grid-template-columns: 1fr; gap: 0.2rem; }
       .meeting-grid { grid-template-columns: 1fr; max-width: 260px; }
     }
+    /* ── Award detail rows ── */
+    .award-meta-row {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .award-org {
+      font-size: 0.82rem; color: var(--muted);
+    }
+    .award-date {
+      font-size: 0.77rem;
+      color: var(--muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -422,33 +435,17 @@
     <ul class="paper-list">
 
       <li class="paper-item">
-        <span class="paper-num">1.</span>
-        <div class="paper-body">
-          <p class="paper-title">Waste Management and Environmental Health in Informal Settlements</p>
-          <p class="paper-authors">Hari Gunda &nbsp;<!-- ✏️ Add coauthors --></p>
-          <div class="paper-row">
-            <span class="badge badge-ip">In Progress</span>
-            <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
-          </div>
-          <div class="abstract-body">
-            This project investigates waste management systems and environmental health outcomes
-            in informal urban settlements, with emphasis on equity and policy-actionable findings.
-            <!-- ✏️ Replace with real abstract -->
-          </div>
-        </div>
-      </li>
-
-      <li class="paper-item">
         <span class="paper-num">2.</span>
         <div class="paper-body">
           <p class="paper-title">The Effects of GDPR on Firm Behavior and Innovation</p>
-          <p class="paper-authors">Hari Gunda &nbsp;<!-- ✏️ Add coauthors --></p>
+          <p class="paper-authors"><strong>Hari Gunda,</strong> <span style="color:var(--muted); font-size:0.78rem;"></span>
+  Martin Kesternich <span style="color:var(--muted); font-size:0.78rem;">(ZEW)</span></p>
           <div class="paper-row">
             <span class="badge badge-ip">In Progress</span>
             <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
           </div>
           <div class="abstract-body">
-            An empirical study of how the General Data Protection Regulation (GDPR) has affected
+            An empirical study of how the European Union's General Data Protection Regulation (GDPR) has affected
             compliance costs, innovation activity, and data practices among European firms.
             <!-- ✏️ Replace with real abstract -->
           </div>
@@ -552,25 +549,76 @@
 <!-- ═══════════════════ AWARDS ═══════════════════ -->
 <section id="awards">
   <p class="section-label">Honors &amp; Awards</p>
-  <table class="awards-tbl">
+    <table class="awards-tbl">
     <tbody>
       <tr>
         <td>1.</td>
-        <td>Boren Scholarship</td>
-        <td>Institute of International Education</td>
+        <td>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+            <p style="font-weight:500;">Boren Scholarship</p>
+            <span class="award-date">April 2024 &ndash; April 2025</span>
+          </div>
+          <div class="award-meta-row">
+            <span class="award-org">National Security Education Program, Institute of International Education</span>
+            <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+          </div>
+          <div class="abstract-body">
+            The Boren Scholarship funds U.S. undergraduate students to study less-commonly taught languages in world regions critical to U.S. national security. This scholarship funded my language study and internship at Universitas Negeri Malang and Yayasan Planet Indonesia in Fall 2024 and Spring 2025.
+          </div>
+        </td>
+        <td></td>
       </tr>
       <tr>
         <td>2.</td>
-        <td>Gilman Scholarship</td>
-        <td>U.S. Department of State</td>
+        <td>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+            <p style="font-weight:500;">Gilman Research Scholarship</p>
+            <span class="award-date">December 2024 &ndash; August 2025</span>
+          </div>
+          <div class="award-meta-row">
+            <span class="award-org">U.S. Department of State, Institute of International Education</span>
+            <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+          </div>
+          <div class="abstract-body">
+            The Benjamin A. Gilman International Scholarship enables undergraduates of limited financial means to study or intern abroad. In addition, I received the STEM Supplemental Award, which supports students conducting research abroad. This scholarship funded my research assistantship at the Paderborn Research Center for Sustainable Economy (PARSEC) in Summer 2025.
+          </div>
+        </td>
+        <td></td>
       </tr>
-      <!-- ✏️ Add more rows following this pattern:
       <tr>
         <td>3.</td>
-        <td>Award Name</td>
-        <td>Awarding Body &middot; Year</td>
+        <td>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+            <p style="font-weight:500;">National Award for Undergraduate Students of German</p>
+            <span class="award-date">April 2025</span>
+          </div>
+          <div class="award-meta-row">
+            <span class="award-org">Delta Phi Alpha (German National Honor Society)</span>
+            <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+          </div>
+          <div class="abstract-body">
+            Initiative of Delta Phi Alpha to recognize undergraduate students of German who show how they use their German in their studies and their plans for using German post-graduation.
+          </div>
+        </td>
+        <td></td>
       </tr>
-      -->
+      <tr>
+        <td>4.</td>
+        <td>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+            <p style="font-weight:500;">Critical Language Scholarship (declined)</p>
+            <span class="award-date">March 2024</span>
+          </div>
+          <div class="award-meta-row">
+            <span class="award-org">U.S. Department of State, Institute of International Education</span>
+            <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+          </div>
+          <div class="abstract-body">
+            Federal government funding to immersively study the language and culture of Indonesia over 8 weeks.
+          </div>
+        </td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
 </section>
@@ -620,13 +668,12 @@
   hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-  // Abstract toggles
-  function toggleAbstract(btn) {
-    const box = btn.parentElement.nextElementSibling;
-    const open = box.classList.toggle('open');
-    btn.textContent = open ? '\u2212 Abstract' : '+ Abstract';
-  }
-
+// Abstract toggles
+function toggleAbstract(btn) {
+  const box = btn.parentElement.nextElementSibling;
+  const open = box.classList.toggle('open');
+  const label = btn.dataset.label || 'Abstract';
+  btn.textContent = open ? '\u2212 ' + label : '+ ' + label;}
   // Active nav highlighting on scroll
   const sections = document.querySelectorAll('section[id]');
   const navAs    = document.querySelectorAll('.nav-links a');
