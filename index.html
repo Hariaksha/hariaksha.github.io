@@ -180,6 +180,32 @@
     .tl-sub { font-size: 0.86rem; color: var(--muted); margin-bottom: 0.28rem; }
     .tl-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.6; }
 
+    /* ── Education extras ── */
+    .edu-meta {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 1rem; margin: 0.45rem 0 0.6rem;
+    }
+    .edu-gpa {
+      font-size: 0.78rem; font-weight: 600; color: var(--accent);
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .edu-gpa i { font-size: 0.65rem; }
+    .edu-conc {
+      font-size: 0.78rem; color: var(--muted); font-style: italic;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .edu-conc i { font-size: 0.72rem; color: var(--muted); }
+    .edu-pills {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.1rem;
+    }
+    .edu-pill {
+      padding: 0.22rem 0.7rem; border-radius: 99px;
+      font-size: 0.72rem; font-weight: 500;
+    }
+    .pill-minor {
+      background: #EEF2FF; color: #3730A3; border: 1px solid #C7D2FE;
+    }
+
     /* ── Awards Table ── */
     .awards-tbl { width: 100%; border-collapse: collapse; }
     .awards-tbl tr { border-bottom: 1px solid var(--border); }
@@ -479,20 +505,35 @@
   <ul class="timeline">
 
     <li class="tl-item">
-      <span class="tl-date">Expected 2027+</span>
+      <span class="tl-date">2021 &ndash; 2025</span>
       <div>
-        <p class="tl-title">PhD in Sustainable Development</p>
-        <p class="tl-sub">Columbia University &middot; New York, NY</p>
-        <p class="tl-desc">Prospective. Research focus: environmental economics, climate and conflict, peacebuilding.</p>
+        <p class="tl-title">B.S. in Data Science</p>
+        <p class="tl-sub">The University of Alabama &middot; Tuscaloosa, AL</p>
+        <div class="edu-meta">
+          <span class="edu-gpa"><i class="fas fa-star"></i> 4.0 GPA</span>
+        </div>
+        <div class="edu-pills">
+          <span class="edu-pill pill-minor">Minor: Computer Science</span>
+          <span class="edu-pill pill-minor">Minor: Mathematics</span>
+          <span class="edu-pill pill-minor">Minor: Economics</span>
+        </div>
       </div>
     </li>
 
     <li class="tl-item">
       <span class="tl-date">2021 &ndash; 2025</span>
       <div>
-        <p class="tl-title">B.S. Data Science &amp; B.A. Foreign Languages and Literature</p>
+        <p class="tl-title">B.A. in Foreign Languages and Literature</p>
         <p class="tl-sub">The University of Alabama &middot; Tuscaloosa, AL</p>
-        <p class="tl-desc">Boren Scholar &middot; Gilman Scholar &middot; <!-- add minors, honors, GPA if desired --></p>
+        <div class="edu-meta">
+          <span class="edu-gpa"><i class="fas fa-star"></i> 4.0 GPA</span>
+          <span class="edu-conc"><i class="fas fa-book"></i> Concentration: German Language &amp; Literature</span>
+        </div>
+        <div class="edu-pills">
+          <span class="edu-pill pill-minor">Minor: International Studies</span>
+          <span class="edu-pill pill-minor">Minor: Public Policy</span>
+          <span class="edu-pill pill-minor">Minor: Global &amp; Cultural Perspectives</span>
+        </div>
       </div>
     </li>
 
