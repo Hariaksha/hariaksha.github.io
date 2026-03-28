@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <!-- Primary Meta -->
+  <!-- Primary Meta -- FIX this SEO / Open Graph stuff later --> 
   <meta name="description" content="Empathy-driven research for a more sustainable and peaceful world. Boren & Gilman Scholar at the University of Alabama."/>
   <meta name="author" content="Hari Gunda"/>
 
@@ -76,6 +76,16 @@
       transition: width 0.6s ease;
     }
 
+    /* ── Paper Tags (refined) ── */
+    .paper-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.4rem 0 0.55rem; }
+    .paper-tag {
+      padding: 0.13rem 0.55rem; border-radius: 99px;
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.03em;
+      background: transparent; color: var(--muted);
+      border: 1px solid var(--border); transition: all .15s;
+    }
+    .paper-tag:hover { background: var(--accent-light); color: var(--accent); border-color: #C4D9CB; }
+
     /* Dark mode adjustments */
     [data-theme="dark"] .lang-fill { background: var(--accent); }
 
@@ -118,7 +128,7 @@
       height: 56px; display: flex; align-items: center; padding: 0 2rem;
     }
     .nav-inner {
-      max-width: 940px; margin: 0 auto; width: 100%;
+      max-width: 1100px; margin: 0 auto; width: 100%;
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-name { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--text); }
@@ -293,6 +303,44 @@
       background: #EEF2FF; color: #3730A3; border: 1px solid #C7D2FE;
     }
 
+    /* ── Featured / Press ── */
+    .featured-track-wrap {
+      overflow-x: auto; padding-bottom: 1rem;
+      /* hide scrollbar visually but keep it functional */
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    }
+    .featured-track-wrap::-webkit-scrollbar { height: 4px; }
+    .featured-track-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+    .featured-track {
+      display: flex; gap: 1.1rem;
+      width: max-content; /* lets cards overflow naturally */
+    }
+
+    .feat-card {
+      width: 230px; border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; background: white; display: flex; flex-direction: column;
+      flex-shrink: 0; transition: box-shadow .2s, border-color .2s; text-decoration: none;
+      color: var(--text);
+    }
+    .feat-card:hover {
+      border-color: var(--accent); box-shadow: 0 4px 18px rgba(45,90,61,.1);
+      text-decoration: none; color: var(--text);
+    }
+    .feat-img-wrap {
+      width: 100%; height: 130px; overflow: hidden; background: var(--bg-alt);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .feat-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .feat-img-icon i { font-size: 2rem; color: var(--muted); }
+
+    .feat-body { padding: 0.85rem; display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
+    .feat-source { font-size: 0.7rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .feat-title { font-size: 0.84rem; font-weight: 500; line-height: 1.4; flex: 1; }
+    .feat-type { font-size: 0.72rem; color: var(--accent); font-weight: 500; margin-top: auto; }
+
+    [data-theme="dark"] .feat-card { background: var(--bg-alt); }
+
     /* ── Awards Table ── */
     .awards-tbl { width: 100%; border-collapse: collapse; }
     .awards-tbl tr { border-bottom: 1px solid var(--border); }
@@ -373,6 +421,7 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#languages">Languages</a></li>
       <li><a href="#awards">Awards</a></li>
+      <li><a href="#featured">Featured</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="assets/files/HariakshaGundaInternshipResume.pdf" target="_blank">CV ↗</a></li>
     </ul>
@@ -498,7 +547,12 @@
         <span class="paper-num">1.</span>
         <div class="paper-body">
           <p class="paper-title">Climate Pressures and Conflict in Indonesia</p>
-          <p class="paper-authors">Hari Gunda &nbsp;<!-- ✏️ Add coauthors --></p>
+          <p class="paper-authors">Hari Gunda &nbsp;</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Climate</span>
+            <span class="paper-tag">Indonesia</span>
+            <span class="paper-tag">Conflict</span>
+          </div>
           <div class="paper-row">
             <span class="badge badge-wp">Working Paper</span>
             <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
@@ -527,6 +581,10 @@
           <p class="paper-title">The Effects of GDPR on Firm Behavior and Innovation</p>
           <p class="paper-authors"><strong>Hari Gunda,</strong> <span style="color:var(--muted); font-size:0.78rem;"></span>
   Dr. Martin Kesternich <span style="color:var(--muted); font-size:0.78rem;">(ZEW)</span></p>
+          <div class="paper-tags">
+            <span class="paper-tag">Environmental Economics</span>
+            <span class="paper-tag">Data Protection Policy</span>
+          </div>
           <div class="paper-row">
             <span class="badge badge-ip">In Progress</span>
             <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
@@ -551,6 +609,10 @@
           <p class="paper-title">Impact of Mission Statement Linguistic Features on Nonprofit Revenues</p>
           <p class="paper-authors"><strong>Hari Gunda,</strong> <span style="color:var(--muted); font-size:0.78rem;"></span>
   Dr. Michael Price <span style="color:var(--muted); font-size:0.78rem;">(The University of Alabama)</span></p>
+          <div class="paper-tags">
+            <span class="paper-tag">Economics of Charity</span>
+            <span class="paper-tag">Behavioral Economics</span>
+          </div>
           <div class="paper-row">
             <span class="badge badge-ip">In Progress</span>
             <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
@@ -754,6 +816,37 @@
       </tr>
     </tbody>
   </table>
+</section>
+
+<!-- ═══════════════════ FEATURED ═══════════════════ -->
+<section id="featured">
+  <p class="section-label">Featured &amp; Press</p>
+  <div class="featured-track-wrap">
+    <div class="featured-track">
+
+      <a href="https://www.uni-paderborn.de/en/news-item/127898" target="_blank" class="feat-card">
+        <div class="feat-img-wrap">
+          <img src="assets/img/paderborn-press.jpg" alt="Uni Paderborn article"/>
+          <!-- ✏️ Replace with actual image, or remove <img> to use the fallback icon -->
+        </div>
+        <div class="feat-body">
+          <span class="feat-source">Uni Paderborn</span>
+          <p class="feat-title">Junger Forscher Hariaksha Gunda aus den USA zu Besuch…</p>
+          <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
+        </div>
+      </a>
+      <a href="#" target="_blank" class="feat-card">
+        <div class="feat-img-wrap feat-img-icon">
+          <i class="fas fa-newspaper"></i>
+        </div>
+        <div class="feat-body">
+          <span class="feat-source">Source Name</span>
+          <p class="feat-title">Title of the article or post goes here</p>
+          <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════════════════ CONTACT ═══════════════════ -->
