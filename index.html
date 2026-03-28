@@ -341,6 +341,17 @@
 
     [data-theme="dark"] .feat-card { background: var(--bg-alt); }
 
+
+    /* ── Awards List ── */
+    .awards-list { list-style: none; }
+    .award-item {
+      display: flex; gap: 1rem;
+      padding: 1.1rem 0; border-bottom: 1px solid var(--border);
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-num { min-width: 22px; font-size: 0.73rem; color: var(--muted); font-weight: 600; padding-top: 0.15rem; }
+    .award-body { flex: 1; }
+
     /* ── Awards Table ── */
     .awards-tbl { width: 100%; border-collapse: collapse; }
     .awards-tbl tr { border-bottom: 1px solid var(--border); }
@@ -744,78 +755,83 @@
 <!-- ═══════════════════ AWARDS ═══════════════════ -->
 <section id="awards">
   <p class="section-label">Honors &amp; Awards</p>
-    <table class="awards-tbl">
-    <tbody>
-      <tr>
-        <td>1.</td>
-        <td>
-          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
-            <p style="font-weight:500;">Boren Scholarship</p>
-            <span class="award-date">April 2024 &ndash; April 2025</span>
-          </div>
-          <div class="award-meta-row">
-            <span class="award-org">National Security Education Program, Institute of International Education</span>
-            <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
-          </div>
-          <div class="abstract-body">
-            The Boren Scholarship funds U.S. undergraduate students to study less-commonly taught languages in world regions critical to U.S. national security. This scholarship funded my language study and internship at Universitas Negeri Malang and Yayasan Planet Indonesia in Fall 2024 and Spring 2025.
-          </div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2.</td>
-        <td>
-          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
-            <p style="font-weight:500;">Gilman Research Scholarship</p>
-            <span class="award-date">December 2024 &ndash; August 2025</span>
-          </div>
-          <div class="award-meta-row">
-            <span class="award-org">U.S. Department of State, Institute of International Education</span>
-            <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
-          </div>
-          <div class="abstract-body">
-            The Benjamin A. Gilman International Scholarship enables undergraduates of limited financial means to study or intern abroad. In addition, I received the STEM Supplemental Award, which supports students conducting research abroad. This scholarship funded my research assistantship at the Paderborn Research Center for Sustainable Economy (PARSEC) in Summer 2025.
-          </div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>3.</td>
-        <td>
-          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
-            <p style="font-weight:500;">National Award for Undergraduate Students of German</p>
-            <span class="award-date">April 2025</span>
-          </div>
-          <div class="award-meta-row">
-            <span class="award-org">Delta Phi Alpha (German National Honor Society)</span>
-            <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
-          </div>
-          <div class="abstract-body">
-            Initiative of Delta Phi Alpha to recognize undergraduate students of German who show how they use their German in their studies and their plans for using German post-graduation.
-          </div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>4.</td>
-        <td>
-          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
-            <p style="font-weight:500;">Critical Language Scholarship (declined)</p>
-            <span class="award-date">March 2024</span>
-          </div>
-          <div class="award-meta-row">
-            <span class="award-org">U.S. Department of State, Institute of International Education</span>
-            <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
-          </div>
-          <div class="abstract-body">
-            Federal government funding to immersively study the language and culture of Indonesia over 8 weeks.
-          </div>
-        </td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+    <ul class="awards-list">
+
+  <li class="award-item">
+    <span class="award-num">1.</span>
+    <div class="award-body">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+        <p style="font-weight:600;">Microsoft Emerging Leader</p>
+        <span class="award-date">July 2025 &ndash; August 2025</span>
+      </div>
+      <div class="award-meta-row">
+        <span class="award-org">Microsoft Security</span>
+        <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+      </div>
+      <div class="abstract-body">I was selected for Microsoft Security's Emerging Leaders for College Students Program, which is designed for students interested in purposeful and impactful careers in technology. The mentorship program connected students directly with Microsoft professionals in intensive workshops to focus on topics such as workplace leadership, problem solving, and landing internships.</div>
+    </div>
+  </li>
+
+  <li class="award-item">
+    <span class="award-num">2.</span>
+    <div class="award-body">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+        <p style="font-weight:600;">Boren Scholarship</p>
+        <span class="award-date">April 2024 &ndash; April 2025</span>
+      </div>
+      <div class="award-meta-row">
+        <span class="award-org">National Security Education Program, Institute of International Education</span>
+        <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+      </div>
+      <div class="abstract-body">The Boren Scholarship funds U.S. undergraduate students to study less-commonly taught languages in world regions critical to U.S. national security. This scholarship funded my language study and internship at Universitas Negeri Malang and Yayasan Planet Indonesia in Fall 2024 and Spring 2025.</div>
+    </div>
+  </li>
+
+  <li class="award-item">
+    <span class="award-num">3.</span>
+    <div class="award-body">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+        <p style="font-weight:600;">Gilman Research Scholarship</p>
+        <span class="award-date">December 2024 &ndash; August 2025</span>
+      </div>
+      <div class="award-meta-row">
+        <span class="award-org">U.S. Department of State, Institute of International Education</span>
+        <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+      </div>
+      <div class="abstract-body">The Benjamin A. Gilman International Scholarship enables undergraduates of limited financial means to study or intern abroad. In addition, I received the STEM Supplemental Award, which supports students conducting research abroad. This scholarship funded my research assistantship at the Paderborn Research Center for Sustainable Economy (PARSEC) in Summer 2025.</div>
+    </div>
+  </li>
+
+  <li class="award-item">
+    <span class="award-num">4.</span>
+    <div class="award-body">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+        <p style="font-weight:600;">National Award for Undergraduate Students of German</p>
+        <span class="award-date">April 2025</span>
+      </div>
+      <div class="award-meta-row">
+        <span class="award-org">Delta Phi Alpha (German National Honor Society)</span>
+        <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+      </div>
+      <div class="abstract-body">Initiative of Delta Phi Alpha to recognize undergraduate students of German who show how they use their German in their studies and their plans for using German post-graduation.</div>
+    </div>
+  </li>
+
+  <li class="award-item">
+    <span class="award-num">5.</span>
+    <div class="award-body">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.25rem;">
+        <p style="font-weight:600;">Critical Language Scholarship <span style="font-weight:400; color:var(--muted); font-size:0.85em;">(declined)</span></p>
+        <span class="award-date">March 2024</span>
+      </div>
+      <div class="award-meta-row">
+        <span class="award-org">U.S. Department of State, Institute of International Education</span>
+        <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+      </div>
+      <div class="abstract-body">Federal government funding to immersively study the language and culture of Indonesia over 8 weeks.</div>
+    </div>
+  </li>
+</ul>
 </section>
 
 <!-- ═══════════════════ FEATURED ═══════════════════ -->
@@ -824,9 +840,9 @@
   <div class="featured-track-wrap">
     <div class="featured-track">
 
-      <a href="https://www.uni-paderborn.de/en/news-item/127898" target="_blank" class="feat-card">
+      <a href="https://wiwi.uni-paderborn.de/en/researching/forschungszentren-labore/parsec/news/news-entry/junger-forscher-hariaksha-gunda-aus-den-usa-zu-besuch-im-parsec" target="_blank" class="feat-card">
         <div class="feat-img-wrap">
-          <img src="assets/img/paderborn-press.jpg" alt="Uni Paderborn article"/>
+          <img src="assets/img/paderborn.png" alt="Uni Paderborn article"/>
           <!-- ✏️ Replace with actual image, or remove <img> to use the fallback icon -->
         </div>
         <div class="feat-body">
@@ -835,13 +851,23 @@
           <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
         </div>
       </a>
-      <a href="#" target="_blank" class="feat-card">
+      <a href="https://news.ua.edu/2024/04/3-ua-students-earn-boren-scholarships-for-foreign-study/" target="_blank" class="feat-card">
         <div class="feat-img-wrap feat-img-icon">
-          <i class="fas fa-newspaper"></i>
+          <img src="assets/img/University-of-Alabama-Logo.png" alt="Uni Alabama article"/>
         </div>
         <div class="feat-body">
-          <span class="feat-source">Source Name</span>
-          <p class="feat-title">Title of the article or post goes here</p>
+          <span class="feat-source">University of Alabama</span>
+          <p class="feat-title">3 UA Students Earn Boren Scholarships for Foreign Study</p>
+          <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
+        </div>
+      </a>
+      <a href="https://news.ua.edu/2024/04/6-ua-students-earn-critical-language-scholarships/" target="_blank" class="feat-card">
+        <div class="feat-img-wrap feat-img-icon">
+          <img src="assets/img/University-of-Alabama-Logo.png" alt="Uni Alabama article"/>
+        </div>
+        <div class="feat-body">
+          <span class="feat-source">University of Alabama</span>
+          <p class="feat-title">6 UA Students Earn Critical Language Scholarships</p>
           <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
         </div>
       </a>
