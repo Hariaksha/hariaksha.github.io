@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hari Gunda | Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ── Variables & Reset ── */
+    :root {
+      --bg:           #FAFAF7;
+      --bg-alt:       #F2F2EE;
+      --text:         #1C1C1A;
+      --muted:        #6B6B65;
+      --accent:       #2D5A3D;
+      --accent-light: #EAF2EC;
+      --accent-mid:   #4A8C62;
+      --border:       #E2E2DC;
+      --serif:        'EB Garamond', Georgia, serif;
+      --sans:         'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 17px; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: var(--sans); line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250,250,247,0.93); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      height: 56px; display: flex; align-items: center; padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 940px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-name { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--text); }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--muted); transition: color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; font-size: 1.2rem; color: var(--text); }
+
+    /* ── Layout ── */
+    main { max-width: 940px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── Hero ── */
+    #hero { padding-top: 9rem; padding-bottom: 5rem; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 170px; gap: 3rem; align-items: start;
+    }
+    .hero-tagline {
+      font-size: 0.73rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem;
+    }
+    .hero-name {
+      font-family: var(--serif); font-size: 3.4rem; font-weight: 400;
+      line-height: 1.1; margin-bottom: 0.2rem;
+    }
+    .hero-pronouns { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.3rem; }
+
+    .hero-meta { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.8rem; font-size: 0.84rem; color: var(--muted); }
+    .hero-meta span { display: flex; align-items: center; gap: 0.5rem; }
+    .hero-meta i { width: 14px; color: var(--accent); font-size: 0.8rem; }
+
+    .social-links { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.5rem; }
+    .social-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.32rem 0.75rem; border: 1px solid var(--border); border-radius: 4px;
+      font-size: 0.76rem; font-weight: 500; color: var(--muted); background: white;
+      transition: all .2s;
+    }
+    .social-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); text-decoration: none; }
+    .social-link i { font-size: 0.82rem; }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.52rem 1.15rem; background: var(--accent); color: white;
+      border-radius: 5px; font-size: 0.8rem; font-weight: 500; transition: background .2s;
+    }
+    .btn-primary:hover { background: #224030; text-decoration: none; color: white; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.52rem 1.15rem; border: 1px solid var(--border); border-radius: 5px;
+      font-size: 0.8rem; font-weight: 500; color: var(--text); background: transparent; transition: all .2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    .hero-photo-wrap {
+      width: 170px; height: 170px; border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border); flex-shrink: 0;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-placeholder { font-size: 0.7rem; color: var(--accent-mid); text-align: center; padding: 1rem; border: 1.5px dashed var(--accent-mid); border-radius: 6px; margin: 6px; }
+
+    /* ── Tags ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .tag {
+      padding: 0.32rem 0.8rem; border-radius: 99px; font-size: 0.76rem; font-weight: 500;
+      background: var(--accent-light); color: var(--accent); border: 1px solid #C4D9CB;
+    }
+
+    /* ── About ── */
+    .about-body { font-family: var(--serif); font-size: 1.12rem; line-height: 1.82; max-width: 680px; }
+    .about-body p + p { margin-top: 1.1rem; }
+
+    /* ── Research ── */
+    .research-group + .research-group { margin-top: 3rem; }
+    .group-title {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--muted); padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.25rem;
+    }
+    .paper-list { list-style: none; display: flex; flex-direction: column; gap: 1.6rem; }
+    .paper-item { display: flex; gap: 1rem; }
+    .paper-num { min-width: 22px; font-size: 0.73rem; color: var(--muted); padding-top: 0.2rem; font-weight: 600; }
+    .paper-body { flex: 1; }
+    .paper-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; margin-bottom: 0.22rem; line-height: 1.4; }
+    .paper-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .paper-venue { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; }
+    .paper-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; }
+
+    .badge {
+      display: inline-block; padding: 0.18rem 0.55rem; border-radius: 4px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em;
+    }
+    .badge-wp  { background: #FEF3C7; color: #92400E; }
+    .badge-ip  { background: #EDE9FE; color: #5B21B6; }
+    .badge-pub { background: var(--accent-light); color: var(--accent); }
+
+    .abstract-btn {
+      background: none; border: none; cursor: pointer; font-size: 0.73rem;
+      font-weight: 500; color: var(--muted); padding: 0; transition: color .2s;
+    }
+    .abstract-btn:hover { color: var(--accent); }
+    .abstract-body {
+      display: none; margin-top: 0.75rem; font-size: 0.86rem; color: var(--muted);
+      line-height: 1.65; padding: 0.8rem 1rem;
+      background: var(--bg-alt); border-left: 2px solid var(--accent-mid); border-radius: 0 4px 4px 0;
+    }
+    .abstract-body.open { display: block; }
+
+    .paper-link {
+      font-size: 0.73rem; font-weight: 500; color: var(--accent);
+      padding: 0.14rem 0.5rem; border: 1px solid #C4D9CB; border-radius: 3px; transition: background .15s;
+    }
+    .paper-link:hover { background: var(--accent-light); text-decoration: none; }
+
+    /* ── Experience / Education ── */
+    .timeline { list-style: none; }
+    .tl-item {
+      display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem;
+      padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+    }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-date { font-size: 0.77rem; color: var(--muted); font-weight: 500; padding-top: 0.1rem; }
+    .tl-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.14rem; }
+    .tl-sub { font-size: 0.86rem; color: var(--muted); margin-bottom: 0.28rem; }
+    .tl-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Awards Table ── */
+    .awards-tbl { width: 100%; border-collapse: collapse; }
+    .awards-tbl tr { border-bottom: 1px solid var(--border); }
+    .awards-tbl tr:last-child { border-bottom: none; }
+    .awards-tbl td { padding: 0.85rem 0.5rem; font-size: 0.86rem; vertical-align: top; }
+    .awards-tbl td:first-child { width: 38px; font-size: 0.73rem; font-weight: 700; color: var(--muted); padding-top: 1rem; }
+    .awards-tbl td:nth-child(2) { font-weight: 500; }
+    .awards-tbl td:last-child { color: var(--muted); font-size: 0.8rem; text-align: right; }
+
+    /* ── Contact ── */
+    .contact-lead { font-family: var(--serif); font-size: 1.3rem; line-height: 1.65; max-width: 540px; margin-bottom: 2.5rem; }
+    .meeting-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .meeting-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; max-width: 440px; margin-bottom: 2rem; }
+    .meeting-card {
+      border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem;
+      background: white; display: block; transition: border-color .2s, box-shadow .2s;
+    }
+    .meeting-card:hover { border-color: var(--accent); box-shadow: 0 2px 14px rgba(45,90,61,.1); text-decoration: none; }
+    .meeting-mins { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--accent); line-height: 1; margin-bottom: 0.25rem; }
+    .meeting-desc { font-size: 0.77rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .meeting-cta { font-size: 0.76rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 0.3rem; }
+    .contact-email { font-size: 0.88rem; color: var(--muted); }
+    .contact-email a { font-weight: 500; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 2.5rem 1rem;
+      font-size: 0.76rem; color: var(--muted); border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 660px) {
+      html { font-size: 15px; }
+      nav { padding: 0 1.2rem; }
+      main { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 56px; left: 0; right: 0;
+        background: var(--bg); border-bottom: 1px solid var(--border);
+        padding: 1rem 1.2rem; gap: 1rem; z-index: 99;
+      }
+      .hamburger { display: block; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-photo-wrap { order: -1; width: 120px; height: 120px; }
+      .hero-name { font-size: 2.5rem; }
+      .tl-item { grid-template-columns: 1fr; gap: 0.2rem; }
+      .meeting-grid { grid-template-columns: 1fr; max-width: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-name">Hari Gunda</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="files/resume.pdf" target="_blank">CV ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="hero-tagline">Researcher &middot; Scholar &middot; Future PhD</p>
+      <h1 class="hero-name">Hari Gunda</h1>
+      <p class="hero-pronouns">he / him</p>
+
+      <div class="hero-meta">
+        <span><i class="fas fa-map-marker-alt"></i> Tuscaloosa, Alabama, USA</span>
+        <span><i class="fas fa-university"></i> The University of Alabama</span>
+        <span><i class="fas fa-award"></i> Boren &amp; Gilman Research Scholar</span>
+      </div>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hariaksha" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/hariaksha" target="_blank" class="social-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.goodreads.com/hariaksha" target="_blank" class="social-link">
+          <i class="fas fa-book-open"></i> Goodreads
+        </a>
+        <a href="mailto:hgunda@crimson.ua.edu" class="social-link">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+      </div>
+
+      <div class="cta-row">
+        <a href="#contact" class="btn-primary">
+          <i class="fas fa-calendar-check"></i> Schedule a Meeting
+        </a>
+        <a href="files/resume.pdf" target="_blank" class="btn-secondary">
+          <i class="fas fa-file-alt"></i> Curriculum Vitae
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <!-- ✏️  Replace placeholder with: <img src="assets/img/profile.jpg" alt="Hari Gunda"> -->
+      <div class="photo-placeholder">Add<br>profile.jpg<br>here</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ RESEARCH INTERESTS ═══════════════════ -->
+<section id="interests">
+  <p class="section-label">Research Interests</p>
+  <div class="tags">
+    <span class="tag">Sustainable Development</span>
+    <span class="tag">Environmental Economics</span>
+    <span class="tag">Climate &amp; Conflict</span>
+    <span class="tag">Peace &amp; Peacebuilding</span>
+    <span class="tag">Environmental Health</span>
+    <span class="tag">Data Science &amp; ML</span>
+    <span class="tag">Causal Inference</span>
+    <span class="tag">Climate Policy</span>
+    <span class="tag">Environmental Justice</span>
+    <span class="tag">Satellite Remote Sensing</span>
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section id="about">
+  <p class="section-label">About</p>
+  <div class="about-body">
+    <p>
+      I am a <strong>Boren and Gilman Research Scholar</strong> at the University of Alabama, studying
+      Data Science and Foreign Languages and Literature. I am training to obtain a PhD in Sustainable
+      Development, applying tools from data science, mathematics, and economics to inform environmental
+      policy and peacebuilding.
+    </p>
+    <p>
+      My research sits at the intersection of <strong>climate, conflict, and sustainable development</strong>.
+      I am especially drawn to questions about how environmental pressures — from climate shocks to
+      pollution — shape human welfare and political stability in the developing world, and how rigorous
+      data and emerging technologies can be turned into actionable, equitable policy.
+    </p>
+    <p>
+      I have studied and worked at universities, nonprofits, and research institutions across the
+      United States, Indonesia, and Germany. My work is grounded in a belief in equity, curiosity,
+      collaboration, and long-term responsibility to people and our planet.
+    </p>
+    <p>
+      In my free time I enjoy running, weightlifting, and reading — especially nonfiction that explores
+      politics, history, and society. I love learning new languages, which helps me connect more deeply
+      with the places I live and the people I meet.
+    </p>
+    <p style="margin-top:1.5rem; font-style:italic; font-size:0.97rem; color:var(--muted);">
+      Please have a low bar for <a href="mailto:hgunda@crimson.ua.edu">reaching out</a> if anything
+      piques your interest &mdash; I would love to hear from you.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ RESEARCH ═══════════════════ -->
+<section id="research">
+  <p class="section-label">Research</p>
+
+  <!-- Working Papers -->
+  <div class="research-group">
+    <p class="group-title">Working Papers</p>
+    <ul class="paper-list">
+
+      <li class="paper-item">
+        <span class="paper-num">1.</span>
+        <div class="paper-body">
+          <p class="paper-title">Climate Pressures and Conflict in Indonesia</p>
+          <p class="paper-authors">Hari Gunda &nbsp;<!-- ✏️ Add coauthors --></p>
+          <div class="paper-row">
+            <span class="badge badge-wp">Working Paper</span>
+            <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
+            <!-- ✏️ Uncomment when ready: <a href="assets/pdfs/paper1.pdf" class="paper-link" target="_blank">PDF</a> -->
+          </div>
+          <div class="abstract-body">
+            This paper examines how climate-related environmental pressures — including rainfall shocks
+            and temperature anomalies — contribute to conflict dynamics across Indonesia's diverse regional
+            contexts. Using satellite imagery and administrative data, I apply causal inference methods
+            to identify mechanisms linking environmental stress to local instability.
+            <!-- ✏️ Replace with real abstract -->
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Work in Progress -->
+  <div class="research-group">
+    <p class="group-title">Work in Progress</p>
+    <ul class="paper-list">
+
+      <li class="paper-item">
+        <span class="paper-num">1.</span>
+        <div class="paper-body">
+          <p class="paper-title">Waste Management and Environmental Health in Informal Settlements</p>
+          <p class="paper-authors">Hari Gunda &nbsp;<!-- ✏️ Add coauthors --></p>
+          <div class="paper-row">
+            <span class="badge badge-ip">In Progress</span>
+            <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
+          </div>
+          <div class="abstract-body">
+            This project investigates waste management systems and environmental health outcomes
+            in informal urban settlements, with emphasis on equity and policy-actionable findings.
+            <!-- ✏️ Replace with real abstract -->
+          </div>
+        </div>
+      </li>
+
+      <li class="paper-item">
+        <span class="paper-num">2.</span>
+        <div class="paper-body">
+          <p class="paper-title">The Effects of GDPR on Firm Behavior and Innovation</p>
+          <p class="paper-authors">Hari Gunda &nbsp;<!-- ✏️ Add coauthors --></p>
+          <div class="paper-row">
+            <span class="badge badge-ip">In Progress</span>
+            <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
+          </div>
+          <div class="abstract-body">
+            An empirical study of how the General Data Protection Regulation (GDPR) has affected
+            compliance costs, innovation activity, and data practices among European firms.
+            <!-- ✏️ Replace with real abstract -->
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+</section>
+
+<!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <ul class="timeline">
+
+    <!-- ✏️ Fill in your real experience items below. Examples are structural placeholders. -->
+
+    <li class="tl-item">
+      <span class="tl-date">TODO &ndash; Present</span>
+      <div>
+        <p class="tl-title">Research Assistant</p>
+        <p class="tl-sub"><!-- Organization · Location --></p>
+        <p class="tl-desc"><!-- Brief description of your role and what you worked on --></p>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <span class="tl-date">TODO</span>
+      <div>
+        <p class="tl-title">Boren Scholar</p>
+        <p class="tl-sub">Institute of International Education &middot; Indonesia</p>
+        <p class="tl-desc">Conducted language study and field research in Indonesia as part of the Boren Scholarship,
+          funding students to study less-commonly taught languages in regions critical to U.S. national interests.</p>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <span class="tl-date">TODO</span>
+      <div>
+        <p class="tl-title">Gilman Scholar</p>
+        <p class="tl-sub">U.S. Department of State &middot; Germany</p>
+        <p class="tl-desc">Studied abroad in Germany through the Benjamin A. Gilman International Scholarship Program,
+          combining academic coursework with independent research in a multilingual environment.</p>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <span class="tl-date">TODO</span>
+      <div>
+        <p class="tl-title"><!-- Role --></p>
+        <p class="tl-sub"><!-- Organization · Location --></p>
+        <p class="tl-desc"><!-- Description --></p>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- ═══════════════════ EDUCATION ═══════════════════ -->
+<section id="education">
+  <p class="section-label">Education</p>
+  <ul class="timeline">
+
+    <li class="tl-item">
+      <span class="tl-date">Expected 2027+</span>
+      <div>
+        <p class="tl-title">PhD in Sustainable Development</p>
+        <p class="tl-sub">Columbia University &middot; New York, NY</p>
+        <p class="tl-desc">Prospective. Research focus: environmental economics, climate and conflict, peacebuilding.</p>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <span class="tl-date">2021 &ndash; 2025</span>
+      <div>
+        <p class="tl-title">B.S. Data Science &amp; B.A. Foreign Languages and Literature</p>
+        <p class="tl-sub">The University of Alabama &middot; Tuscaloosa, AL</p>
+        <p class="tl-desc">Boren Scholar &middot; Gilman Scholar &middot; <!-- add minors, honors, GPA if desired --></p>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- ═══════════════════ AWARDS ═══════════════════ -->
+<section id="awards">
+  <p class="section-label">Honors &amp; Awards</p>
+  <table class="awards-tbl">
+    <tbody>
+      <tr>
+        <td>1.</td>
+        <td>Boren Scholarship</td>
+        <td>Institute of International Education</td>
+      </tr>
+      <tr>
+        <td>2.</td>
+        <td>Gilman Scholarship</td>
+        <td>U.S. Department of State</td>
+      </tr>
+      <!-- ✏️ Add more rows following this pattern:
+      <tr>
+        <td>3.</td>
+        <td>Award Name</td>
+        <td>Awarding Body &middot; Year</td>
+      </tr>
+      -->
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <p class="contact-lead">
+    Interested in collaboration, research, or just a conversation?
+    I&rsquo;d love to hear from you &mdash; please have a low bar for reaching out.
+  </p>
+
+  <p class="meeting-label">Schedule a meeting</p>
+  <div class="meeting-grid">
+    <a href="https://zcal.co/hariaksha/30min" target="_blank" class="meeting-card">
+      <div class="meeting-mins">30 min</div>
+      <div class="meeting-desc">Quick chat / intro call</div>
+      <div class="meeting-cta">Book a time <i class="fas fa-arrow-right" style="font-size:.6rem;"></i></div>
+    </a>
+    <a href="https://zcal.co/hariaksha/60min" target="_blank" class="meeting-card">
+      <div class="meeting-mins">60 min</div>
+      <div class="meeting-desc">Deep dive / collaboration</div>
+      <div class="meeting-cta">Book a time <i class="fas fa-arrow-right" style="font-size:.6rem;"></i></div>
+    </a>
+  </div>
+
+  <p class="contact-email">
+    Or reach me directly at&nbsp;<a href="mailto:hgunda@crimson.ua.edu">hgunda@crimson.ua.edu</a>
+  </p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    &copy; 2026 Hari Gunda &nbsp;&middot;&nbsp;
+    <a href="mailto:hgunda@crimson.ua.edu">hgunda@crimson.ua.edu</a> &nbsp;&middot;&nbsp;
+    <a href="https://github.com/hariaksha/hariaksha.github.io" target="_blank">Source on GitHub</a>
+  </p>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Abstract toggles
+  function toggleAbstract(btn) {
+    const box = btn.parentElement.nextElementSibling;
+    const open = box.classList.toggle('open');
+    btn.textContent = open ? '\u2212 Abstract' : '+ Abstract';
+  }
+
+  // Active nav highlighting on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navAs    = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    navAs.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + cur) a.classList.add('active');
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
