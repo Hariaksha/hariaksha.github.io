@@ -416,6 +416,71 @@
       font-weight: 500;
       white-space: nowrap;
     }
+    /* Featured subsections */
+    .featured-sub-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.4rem;
+    }
+    .featured-sub + .featured-sub {
+      margin-top: 2.8rem;
+    }
+
+    /* Conference table */
+    .conf-tbl {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .conf-tbl tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .conf-tbl tr:last-child {
+      border-bottom: none;
+    }
+    .conf-tbl td {
+      padding: 0.85rem 0.5rem;
+      font-size: 0.86rem;
+      vertical-align: top;
+    }
+    .conf-tbl td:first-child {
+      width: 38px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--muted);
+      padding-top: 1rem;
+    }
+    .conf-tbl td:nth-child(2) {
+      font-weight: 500;
+    }
+    .conf-tbl td:last-child {
+      color: var(--muted);
+      font-size: 0.80rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .conf-badge {
+      display: inline-block;
+      padding: 0.12rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-left: 0.45rem;
+    }
+    .conf-badge-oral {
+      background: #EAF2EC;
+      color: var(--accent);
+      border: 1px solid #C4D9CB;
+    }
+    .conf-badge-poster {
+      background: #EDE9FE;
+      color: #5B21B6;
+    }
   </style>
 </head>
 <body>
@@ -836,41 +901,80 @@
 
 <!-- ═══════════════════ FEATURED ═══════════════════ -->
 <section id="featured">
-  <p class="section-label">Featured &amp; Press</p>
-  <div class="featured-track-wrap">
-    <div class="featured-track">
+  <p class="section-label">Featured</p>
 
-      <a href="https://wiwi.uni-paderborn.de/en/researching/forschungszentren-labore/parsec/news/news-entry/junger-forscher-hariaksha-gunda-aus-den-usa-zu-besuch-im-parsec" target="_blank" class="feat-card">
-        <div class="feat-img-wrap">
-          <img src="assets/img/paderborn.png" alt="Uni Paderborn article"/>
-          <!-- ✏️ Replace with actual image, or remove <img> to use the fallback icon -->
-        </div>
-        <div class="feat-body">
-          <span class="feat-source">Uni Paderborn</span>
-          <p class="feat-title">Junger Forscher Hariaksha Gunda aus den USA zu Besuch…</p>
-          <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
-        </div>
-      </a>
-      <a href="https://news.ua.edu/2024/04/3-ua-students-earn-boren-scholarships-for-foreign-study/" target="_blank" class="feat-card">
-        <div class="feat-img-wrap feat-img-icon">
-          <img src="assets/img/University-of-Alabama-Logo.png" alt="Uni Alabama article"/>
-        </div>
-        <div class="feat-body">
-          <span class="feat-source">University of Alabama</span>
-          <p class="feat-title">3 UA Students Earn Boren Scholarships for Foreign Study</p>
-          <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
-        </div>
-      </a>
-      <a href="https://news.ua.edu/2024/04/6-ua-students-earn-critical-language-scholarships/" target="_blank" class="feat-card">
-        <div class="feat-img-wrap feat-img-icon">
-          <img src="assets/img/University-of-Alabama-Logo.png" alt="Uni Alabama article"/>
-        </div>
-        <div class="feat-body">
-          <span class="feat-source">University of Alabama</span>
-          <p class="feat-title">6 UA Students Earn Critical Language Scholarships</p>
-          <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
-        </div>
-      </a>
+  <!-- PRESENTATIONS & CONFERENCES -->
+  <div class="featured-sub" id="presentations">
+    <p class="featured-sub-label">Presentations &amp; Conferences</p>
+    <table class="conf-tbl">
+      <tbody>
+        <tr>
+          <td>1.</td>
+          <td>
+            UA Undergraduate Research &amp; Creative Activities Conference
+            <span class="conf-badge conf-badge-poster">Poster</span>
+          </td>
+          <td>April 2026</td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>
+            UA Undergraduate Research &amp; Creative Activities Conference
+            <span class="conf-badge conf-badge-poster">Poster</span>
+          </td>
+          <td>April 2026</td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>
+            UA Undergraduate Research &amp; Creative Activities Conference
+            <span class="conf-badge conf-badge-poster">Poster</span>
+          </td>
+          <td>April 2024</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PRESS & ARTICLES -->
+  <div class="featured-sub" id="press">
+    <p class="featured-sub-label">Press &amp; Articles</p>
+    <div class="featured-track-wrap">
+      <div class="featured-track">
+
+        <a href="https://wiwi.uni-paderborn.de/en/researching/forschungszentren-labore/parsec/news/news-entry/junger-forscher-hariaksha-gunda-aus-den-usa-zu-besuch-im-parsec" target="_blank" class="feat-card">
+          <div class="feat-img-wrap">
+            <img src="assets/img/paderborn.png" alt="Uni Paderborn article"/>
+          </div>
+          <div class="feat-body">
+            <span class="feat-source">Uni Paderborn</span>
+            <p class="feat-title">Junger Forscher Hariaksha Gunda aus den USA zu Besuch…</p>
+            <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
+          </div>
+        </a>
+
+        <a href="https://news.ua.edu/2024/04/3-ua-students-earn-boren-scholarships-for-foreign-study/" target="_blank" class="feat-card">
+          <div class="feat-img-wrap feat-img-icon">
+            <img src="assets/img/University-of-Alabama-Logo.png" alt="Uni Alabama article"/>
+          </div>
+          <div class="feat-body">
+            <span class="feat-source">University of Alabama</span>
+            <p class="feat-title">3 UA Students Earn Boren Scholarships for Foreign Study</p>
+            <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
+          </div>
+        </a>
+
+        <a href="https://news.ua.edu/2024/04/6-ua-students-earn-critical-language-scholarships/" target="_blank" class="feat-card">
+          <div class="feat-img-wrap feat-img-icon">
+            <img src="assets/img/University-of-Alabama-Logo.png" alt="Uni Alabama article"/>
+          </div>
+          <div class="feat-body">
+            <span class="feat-source">University of Alabama</span>
+            <p class="feat-title">6 UA Students Earn Critical Language Scholarships</p>
+            <span class="feat-type">Article <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;"></i></span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
