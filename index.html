@@ -39,6 +39,42 @@
       --serif:        'EB Garamond', Georgia, serif;
       --sans:         'Inter', system-ui, sans-serif;
     }
+    /* ── Collapsible Section Toggle ── */
+    .collapsible-extra {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+    .collapsible-extra.open {
+      max-height: 4000px;
+    }
+    .section-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.2rem;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.38rem 0.85rem;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .section-toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .section-toggle-btn i {
+      font-size: 0.7rem;
+      transition: transform 0.3s ease;
+    }
+    .section-toggle-btn.open i {
+      transform: rotate(180deg);
+    }
 
     /* ── Awards Collapse Toggle ── */
     .awards-hidden {
@@ -835,16 +871,25 @@
         <p class="tl-desc">Research Assistant to Dr. Martin Kesternich, working on project evaluating impact of EU GDPR on company behaviors related to data sharing, innovation, and workforce adjustments.</p>
       </div>
     </li>
+    <!-- items 1–3 stay as normal <li> above this -->
 
-    <li class="tl-item">
-      <span class="tl-date">December 2024 &ndash; April 2025</span>
-      <div>
-        <p class="tl-title">Data Scientist</p>
-        <p class="tl-sub">Yayasan Planet Indonesia &middot; Pontianak, Indonesia</p>
-        <p class="tl-desc">Created marine environmental risk assessments for Indonesian provinces to inform conservation and funding priorities for the conservation nonprofit.</p>
-      </div>
-    </li>
+    <div class="collapsible-extra" id="experience-extra">
+        <li class="tl-item">
+          <span class="tl-date">December 2024 &ndash; April 2025</span>
+          <div>
+            <p class="tl-title">Data Scientist</p>
+            <p class="tl-sub">Yayasan Planet Indonesia &middot; Pontianak, Indonesia</p>
+            <p class="tl-desc">Created marine environmental risk assessments for Indonesian provinces to inform conservation and funding priorities for the conservation nonprofit.</p>
+          </div>
+        </li>
+    <div><!-- /experience-extra -->
   </ul>
+  <button class="section-toggle-btn" id="exp-toggle-btn"
+          onclick="toggleSection('experience-extra','exp-toggle-btn')"
+          aria-expanded="false">
+    <i class="fas fa-chevron-down"></i>
+    <span class="toggle-label">Loading…</span>
+  </button>
 </section>
 
 <!-- ═══════════════════ EDUCATION ═══════════════════ -->
@@ -989,7 +1034,7 @@
   </li>
   <!-- visible: items 1–3 above this line -->
 
-  <div class="awards-hidden" id="awards-extra">
+  <div class="collapsible-extra" id="awards-extra">
 
     <li class="award-item">
       <span class="award-num">4.</span>
@@ -1022,9 +1067,11 @@
     </li>
   <div><!-- /awards-extra -->
 </ul>
-<button class="awards-toggle-btn" id="awards-toggle-btn"
-        onclick="toggleAwards()" aria-expanded="false">
-  <i class="fas fa-chevron-down"></i> Show 2 more awards
+<button class="section-toggle-btn" id="awards-toggle-btn"
+          onclick="toggleSection('awards-extra','awards-toggle-btn')"
+          aria-expanded="false">
+    <i class="fas fa-chevron-down"></i>
+    <span class="toggle-label">Loading…</span>
 </button>
 </section>
 
@@ -1186,16 +1233,29 @@
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
 // Abstract toggles
-function toggleAwards() {
-  const extra = document.getElementById('awards-extra');
-  const btn   = document.getElementById('awards-toggle-btn');
+function toggleSection(extraId, btnId) {
+  const extra = document.getElementById(extraId);
+  const btn   = document.getElementById(btnId);
+  const count = extra.querySelectorAll('li').length;
   const isOpen = extra.classList.toggle('open');
   btn.classList.toggle('open', isOpen);
   btn.setAttribute('aria-expanded', isOpen);
-  btn.innerHTML = isOpen
-    ? '<i class="fas fa-chevron-down"></i> Show less'
-    : '<i class="fas fa-chevron-down"></i> Show 2 more awards';
+  btn.querySelector('.toggle-label').textContent = isOpen
+    ? 'Show less'
+    : 'Show ' + count + ' more';
 }
+
+// Set initial button labels on page load
+document.addEventListener('DOMContentLoaded', () => {
+  [['experience-extra','exp-toggle-btn'], ['awards-extra','awards-toggle-btn']].forEach(([extraId, btnId]) => {
+    const extra = document.getElementById(extraId);
+    const btn   = document.getElementById(btnId);
+    if (extra && btn) {
+      const count = extra.querySelectorAll('li').length;
+      btn.querySelector('.toggle-label').textContent = 'Show ' + count + ' more';
+    }
+  });
+});
 function toggleAbstract(btn) {
   const box = btn.parentElement.nextElementSibling;
   const open = box.classList.toggle('open');
