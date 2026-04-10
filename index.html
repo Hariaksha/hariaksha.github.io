@@ -481,9 +481,65 @@
       background: #EDE9FE;
       color: #5B21B6;
     }
+
+    /* ── Scroll Progress Bar ── */
+    #scroll-progress {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      z-index: 200;
+      transition: width 0.08s linear;
+    }
+
+    /* ── Back to Top Button ── */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.2s, background 0.2s;
+      z-index: 150;
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    #back-to-top:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    @media (max-width: 660px) {
+      #back-to-top { bottom: 1.2rem; right: 1.2rem; width: 36px; height: 36px; font-size: 0.9rem; }
+    }
   </style>
 </head>
 <body>
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- Back to Top -->
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 <!-- NAV -->
 <nav>
@@ -827,7 +883,7 @@
         <span class="lang-cert">Household Language</span>
       </div>
       <div class="lang-right">
-        <span class="lang-level level-beginner">Limited Conversational Proficiency</span>
+        <span class="lang-level level-advanced">Limited Conversational Proficiency</span>
         <div class="lang-bar"><div class="lang-fill" style="width:45%"></div></div>
       </div>
     </li>
@@ -1084,7 +1140,19 @@ function toggleAbstract(btn) {
   // Active nav highlighting on scroll
   const sections = document.querySelectorAll('section[id]');
   const navAs    = document.querySelectorAll('.nav-links a');
+  // Scroll progress bar + back-to-top
+  const progressBar = document.getElementById('scroll-progress');
+  const backToTop   = document.getElementById('back-to-top');
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
   window.addEventListener('scroll', () => {
+    // Update progress bar
+    const scrolled = window.scrollY;
+    const total = document.body.scrollHeight - window.innerHeight;
+    if (progressBar) progressBar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+    // Show/hide back-to-top after 400px
+    if (backToTop) backToTop.classList.toggle('visible', scrolled > 400);
+    // Active nav
     let cur = '';
     sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
     navAs.forEach(a => {
