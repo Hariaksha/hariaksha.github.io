@@ -609,6 +609,110 @@
     @media (max-width: 660px) {
       #back-to-top { bottom: 1.2rem; right: 1.2rem; width: 36px; height: 36px; font-size: 0.9rem; }
     }
+    /* Experience Professional/Fun Toggle */
+    /* Experience toggle switch */
+    .exp-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .exp-toggle-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .exp-toggle-switch {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .exp-toggle-switch input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .exp-toggle-track {
+      display: block;
+      width: 42px;
+      height: 24px;
+      background: var(--border);
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      transition: background 0.22s ease, border-color 0.22s ease;
+      position: relative;
+    }
+    .exp-toggle-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+      transition: transform 0.22s ease;
+    }
+    /* Checked state — purple for Fun */
+    .exp-toggle-switch input:checked ~ .exp-toggle-track {
+      background: #7C3AED;
+      border-color: #7C3AED;
+    }
+    .exp-toggle-switch input:checked ~ .exp-toggle-track .exp-toggle-thumb {
+      transform: translateX(18px);
+    }
+    /* Highlight the active label */
+    .exp-filter-row:has(input:checked) #exp-fun-label {
+      color: #7C3AED;
+      font-weight: 700;
+    }
+    /* Focus ring for accessibility */
+    .exp-toggle-switch input:focus-visible ~ .exp-toggle-track {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .exp-filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .exp-filter-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .exp-filter-btn.active-fun {
+      background: #7C3AED;
+      color: white;
+      border-color: #7C3AED;
+    }
+    /* Fun items hidden by default */
+    .tl-item[data-exp-type="fun"] {
+      display: none;
+    }
+    .tl-item[data-exp-type="fun"].exp-visible {
+      display: grid;
+    }
+    /* Small badge on fun items */
+    .tl-fun-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #7C3AED;
+      background: #EDE9FE;
+      border: 1px solid #C4B5FD;
+      border-radius: 4px;
+      padding: 0.13rem 0.5rem;
+      margin-bottom: 0.3rem;
+    }
   </style>
 </head>
 <body>
@@ -673,6 +777,9 @@
         </a>
         <a href="https://www.goodreads.com/hariaksha" target="_blank" class="social-link">
           <i class="fas fa-book-open"></i> Goodreads
+        </a>
+        <a href="https://www.zotero.org/hariaksha" target="_blank" class="social-link">
+          <i class="fas fa-database"></i> Zotero
         </a>
         <a href="https://scholar.google.com/citations?hl=en&user=m4XrtN4AAAAJ&view_op=list_works" target="_blank" class="social-link">
           <i class="fas fa-graduation-cap"></i> Google Scholar
@@ -850,7 +957,63 @@
 <!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
 <section id="experience">
   <p class="section-label">Experience</p>
+  <div class="exp-filter-row">
+    <span class="exp-toggle-label">Professional</span>
+    <label class="exp-toggle-switch" aria-label="Toggle fun experiences">
+      <input type="checkbox" id="exp-toggle-checkbox" onchange="filterExp(this.checked ? 'fun' : 'professional')">
+      <span class="exp-toggle-track">
+        <span class="exp-toggle-thumb"></span>
+      </span>
+    </label>
+    <span class="exp-toggle-label" id="exp-fun-label">Fun</span>
+  </div>
   <ul class="timeline">
+
+    <li class="tl-item" data-exp-type="fun">
+      <span class="tl-date">2025 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Data Volunteer</p>
+        <p class="tl-sub">Remote</p>
+        <p class="tl-desc">In collaboration with the Net Zero Tracker at Oxford, I collect and review data to track the net zero commitments of all nations, the regions of the top 25-emitting countries, cities with over half a million inhabitants, and the 2000 biggest publicly-listed companies in the world.</p>
+      </div>
+    </li>
+
+    <li class="tl-item" data-exp-type="fun">
+      <span class="tl-date">2022 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Language Learning &amp; Cultural Immersion</p>
+        <p class="tl-sub">Indonesia, Germany, and the US</p>
+        <p class="tl-desc">Working on my Indonesian, German, and Telugu through Anki, classroom instruction, immersion, conversation partners, and media.</p>
+      </div>
+    </li>
+
+        <li class="tl-item" data-exp-type="fun">
+      <span class="tl-date">2022 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Avid Reader</p>
+        <p class="tl-sub">Goodreads: @hariaksha</p>
+        <p class="tl-desc">Reading across fiction, history, and social sciences &mdash; especially books connected to places I&rsquo;ve researched. I also join a book club wherever I live. I currently meet with the Philomathic Literary Society at UA. </p>
+      </div>
+    </li>
+
+    <div class="collapsible-extra" id="fun-extra">
+    <li class="tl-item" data-exp-type="fun">
+      <span class="tl-date">2018 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Dance</p>
+        <p class="tl-sub">Alabama &amp; East Java</p>
+        <p class="tl-desc">Performing in dance groups since high school and currently with Nach Basanti at UA. Mostly Indian fusion with a little experience in K-Pop and East Javanese traditional. I also taught Indian fusion from 2022-24.</p>
+      </div>
+    </li>
+    </div>
+    <!-- The "Show _ more" button for Fun -->
+<button class="section-toggle-btn" id="fun-toggle-btn"
+        onclick="toggleSection('fun-extra', 'fun-toggle-btn')"
+        aria-expanded="false" style="display:none;">
+  <i class="fas fa-chevron-down"></i>
+  <span class="toggle-label">Loading</span>
+</button>
+</li>
     <li class="tl-item">
       <span class="tl-date">June 2026 &ndash; July 2026</span>
       <div>
@@ -1211,6 +1374,13 @@
   <p class="contact-email">
     Or reach me directly at&nbsp;<a href="mailto:hgunda@crimson.ua.edu">hgunda@crimson.ua.edu</a>
   </p>
+  <!-- After your contact-email paragraph -->
+<p class="contact-email" style="margin-top: 0.75rem;">
+  Or find me on&nbsp;
+  <a href="https://instagram.com/hariaksha" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+</p>
 </section>
 
 </main>
@@ -1225,6 +1395,51 @@
 </footer>
 
 <script>
+function filterExp(type) {
+  const allItems = document.querySelectorAll('#experience .tl-item');
+  const proExtra = document.getElementById('experience-extra');
+  const proToggle = document.getElementById('exp-toggle-btn');
+  const funExtra  = document.getElementById('fun-extra');
+  const funToggle = document.getElementById('fun-toggle-btn');
+
+  if (type === 'fun') {
+    allItems.forEach(item => {
+      if (!item.dataset.expType || item.dataset.expType === 'professional') {
+        item.style.display = 'none';
+      } else {
+        item.classList.add('exp-visible');
+      }
+    });
+    if (proExtra) proExtra.classList.remove('open');
+    if (proToggle) proToggle.style.display = 'none';
+    if (funExtra && funToggle) {
+      const count = funExtra.querySelectorAll('.tl-item[data-exp-type="fun"]').length;
+      funExtra.classList.remove('open');
+      funToggle.classList.remove('open');
+      funToggle.setAttribute('aria-expanded', 'false');
+      funToggle.querySelector('.toggle-label').textContent = `Show ${count} more`;
+      funToggle.style.display = count > 0 ? 'inline-flex' : 'none';
+    }
+  } else {
+    allItems.forEach(item => {
+      if (!item.dataset.expType || item.dataset.expType === 'professional') {
+        item.style.display = '';
+      } else {
+        item.classList.remove('exp-visible');
+      }
+    });
+    if (proExtra && proToggle) {
+      const count = proExtra.querySelectorAll('.tl-item').length;
+      proExtra.classList.remove('open');
+      proToggle.classList.remove('open');
+      proToggle.setAttribute('aria-expanded', 'false');
+      proToggle.querySelector('.toggle-label').textContent = `Show ${count} more`;
+      proToggle.style.display = count > 0 ? 'inline-flex' : 'none';
+    }
+    if (funExtra) funExtra.classList.remove('open');
+    if (funToggle) funToggle.style.display = 'none';
+  }
+}
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('nav-links');
