@@ -1,0 +1,14 @@
+# robots.txt for hariaksha.com
+# Updated: 2026-04-16
+
+User-agent: *
+Allow: /
+
+# Point all crawlers to the sitemap
+Sitemap: https://hariaksha.com/sitemap.xml
+
+# Allow indexing of the CV/resume PDF
+Allow: /assets/files/
+
+# Disallow any private or draft directories (add as needed)
+# Disallow: /drafts/
