@@ -331,6 +331,44 @@
       background: var(--bg-alt); border-left: 2px solid var(--accent-mid); border-radius: 0 4px 4px 0;
     }
     .abstract-body.open { display: block; }
+    .research-modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0);
+      backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
+      z-index: 9000; display: grid; place-items: center; padding: 1.5rem;
+      pointer-events: none;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    }
+    .research-modal-overlay.open {
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      pointer-events: all;
+    }
+    .research-modal-box {
+      background: var(--card-bg, #fff);
+      border: 1px solid var(--border, #e5e7eb);
+      border-radius: 14px; padding: 2rem 2.25rem;
+      max-width: 600px; width: 100%;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+      transform: translateY(20px) scale(0.97); opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease;
+      max-height: 85vh; overflow-y: auto;
+    }
+    .research-modal-overlay.open .research-modal-box { transform: translateY(0) scale(1); opacity: 1; }
+    .research-modal-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; }
+    .research-modal-title { font-size: 1rem; font-weight: 700; line-height: 1.35; color: var(--text, #111); }
+    .research-modal-close {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+      border: 1px solid var(--border, #e5e7eb); background: var(--bg-alt, #f5f5f5);
+      color: var(--muted, #6b7280); display: grid; place-items: center;
+      font-size: 0.9rem; cursor: pointer; transition: background 0.15s, color 0.15s;
+    }
+    .research-modal-close:hover { background: var(--accent-light); color: var(--accent); }
+    .research-modal-authors { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
+    .research-modal-divider { height: 1px; background: var(--border, #e5e7eb); margin: 0.75rem 0 1rem; }
+    .research-modal-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem; }
+    .research-modal-text { font-size: 0.86rem; color: var(--muted); line-height: 1.8; }
+    .research-modal-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 1.25rem; }
 
     .paper-link {
       font-size: 0.73rem; font-weight: 500; color: var(--accent);
@@ -874,11 +912,8 @@
           </div>
           <div class="paper-row">
             <span class="badge badge-wp">Working Paper</span>
-            <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
+            <button class="abstract-btn" onclick="openResearchModal({title:'Sentiment Analysis of Climate Disaster News Articles',authors:'Hari Gunda, Dr. Michael Price (The University of Alabama), Dr. Angela Doku (University of Toronto), Dr. John List (University of Chicago)',tags:['Natural Language Processing','Climate'],abstract:'This paper uses a NOAA dataset of climate disasters in the United States and web scraped news articles about those disasters from newspapers across the country to understand how climate disasters are communicated across geography, type of disaster, and other categories. We are particularly interested in learning under what circumstances these climate disasters are attributed to climate change versus natural causes.'})">+ Abstract</button>
             <!-- ✏️ Uncomment when ready: <a href="assets/pdfs/paper1.pdf" class="paper-link" target="_blank">PDF</a> -->
-          </div>
-          <div class="abstract-body">
-            This paper uses a NOAA dataset of climate disasters in the United States and web scraped news articles about those disasters from newspapers across the country to understand how climate disasters are communicated across geography, type of disaster, and other categories. We are particularly interested in learning under what circumstances these climate disasters are attributed to climate change versus natural causes.
           </div>
         </div>
       </li>
@@ -903,10 +938,7 @@
           </div>
           <div class="paper-row">
             <span class="badge badge-ip">In Progress</span>
-            <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
-          </div>
-          <div class="abstract-body">
-            Creating a time- and district-fixed effects model along with a wind instrumental variables model to find causal effects of wildfire exposure on conflict intensity and probability in Indonesia.
+            <button class="abstract-btn" onclick="openResearchModal({title:'Climate Pressures and Conflict in Indonesia',authors:'Hari Gunda',tags:['Climate','Indonesia','Conflict'],abstract:'Creating a time- and district-fixed effects model along with a wind instrumental variables model to find causal effects of wildfire exposure on conflict intensity and probability in Indonesia.'})">+ Abstract</button>
           </div>
         </div>
       </li>
@@ -923,11 +955,7 @@
           </div>
           <div class="paper-row">
             <span class="badge badge-ip">In Progress</span>
-            <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
-          </div>
-          <div class="abstract-body">
-            An empirical study of how the European Union's General Data Protection Regulation (GDPR) and uncertainty surrounding the policy has affected
-            compliance costs, innovation activity, and data practices among European firms.
+            <button class="abstract-btn" onclick="openResearchModal({title:'The Effects of GDPR on Firm Behavior and Innovation',authors:'Hari Gunda, Dr. Martin Kesternich (ZEW)',tags:['Environmental Economics','Data Protection Policy'],abstract:'An empirical study of how the European Union\'s General Data Protection Regulation (GDPR) and uncertainty surrounding the policy has affected compliance costs, innovation activity, and data practices among European firms.'})">+ Abstract</button>
           </div>
         </div>
       </li>
@@ -943,10 +971,7 @@
           </div>
           <div class="paper-row">
             <span class="badge badge-ip">In Progress</span>
-            <button class="abstract-btn" onclick="toggleAbstract(this)">+ Abstract</button>
-          </div>
-          <div class="abstract-body">
-            Using NLP to determine how linguistic features of mission statements impact revenues of tax-exempt organizations in the United States.
+            <button class="abstract-btn" onclick="openResearchModal({title:'Impact of Mission Statement Linguistic Features on Nonprofit Revenues',authors:'Hari Gunda, Dr. Michael Price (The University of Alabama)',tags:['Economics of Charity','Behavioral Economics'],abstract:'Using NLP to determine how linguistic features of mission statements impact revenues of tax-exempt organizations in the United States.'})">+ Abstract</button>
           </div>
         </div>
       </li>
@@ -1156,9 +1181,8 @@
       </div>
       <div class="award-meta-row">
         <span class="award-org">Microsoft Security</span>
-        <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+        <button class="abstract-btn" data-label="Details" onclick="openResearchModal({title:'Microsoft Emerging Leader',authors:'Microsoft Security · July 2025 – August 2025',tags:['Leadership','Technology'],abstract:'I was selected for Microsoft Security\'s Emerging Leaders for College Students Program, which is designed for students interested in purposeful and impactful careers in technology. The mentorship program connected students directly with Microsoft professionals in intensive workshops to focus on topics such as workplace leadership, problem solving, and landing internships.'})">+ Details</button>
       </div>
-      <div class="abstract-body">I was selected for Microsoft Security's Emerging Leaders for College Students Program, which is designed for students interested in purposeful and impactful careers in technology. The mentorship program connected students directly with Microsoft professionals in intensive workshops to focus on topics such as workplace leadership, problem solving, and landing internships.</div>
     </div>
   </li>
 
@@ -1171,9 +1195,8 @@
       </div>
       <div class="award-meta-row">
         <span class="award-org">National Security Education Program, Institute of International Education</span>
-        <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+        <button class="abstract-btn" data-label="Details" onclick="openResearchModal({title:'Boren Scholarship',authors:'National Security Education Program, Institute of International Education · April 2024 – April 2025',tags:['Scholarship','Indonesia','Language Study'],abstract:'The Boren Scholarship funds U.S. undergraduate students to study less-commonly taught languages in world regions critical to U.S. national security. This scholarship funded my language study and internship at Universitas Negeri Malang and Yayasan Planet Indonesia in Fall 2024 and Spring 2025.'})">+ Details</button>
       </div>
-      <div class="abstract-body">The Boren Scholarship funds U.S. undergraduate students to study less-commonly taught languages in world regions critical to U.S. national security. This scholarship funded my language study and internship at Universitas Negeri Malang and Yayasan Planet Indonesia in Fall 2024 and Spring 2025.</div>
     </div>
   </li>
 
@@ -1186,9 +1209,8 @@
       </div>
       <div class="award-meta-row">
         <span class="award-org">U.S. Department of State, Institute of International Education</span>
-        <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+        <button class="abstract-btn" data-label="Details" onclick="openResearchModal({title:'Gilman Research Scholarship',authors:'U.S. Department of State, Institute of International Education · December 2024 – August 2025',tags:['Scholarship','Germany','Research'],abstract:'The Benjamin A. Gilman International Scholarship enables undergraduates of limited financial means to study or intern abroad. In addition, I received the STEM Supplemental Award, which supports students conducting research abroad. This scholarship funded my research assistantship at the Paderborn Research Center for Sustainable Economy (PARSEC) in Summer 2025.'})">+ Details</button>
       </div>
-      <div class="abstract-body">The Benjamin A. Gilman International Scholarship enables undergraduates of limited financial means to study or intern abroad. In addition, I received the STEM Supplemental Award, which supports students conducting research abroad. This scholarship funded my research assistantship at the Paderborn Research Center for Sustainable Economy (PARSEC) in Summer 2025.</div>
     </div>
   </li>
   <!-- visible: items 1–3 above this line -->
@@ -1204,9 +1226,8 @@
         </div>
         <div class="award-meta-row">
           <span class="award-org">Delta Phi Alpha (German National Honor Society)</span>
-          <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+          <button class="abstract-btn" data-label="Details" onclick="openResearchModal({title:'National Award for Undergraduate Students of German',authors:'Delta Phi Alpha (German National Honor Society) · April 2025',tags:['German','Language','Honor Society'],abstract:'Initiative of Delta Phi Alpha to recognize undergraduate students of German who show how they use their German in their studies and their plans for using German post-graduation.'})">+ Details</button>
         </div>
-        <div class="abstract-body">Initiative of Delta Phi Alpha to recognize undergraduate students of German who show how they use their German in their studies and their plans for using German post-graduation.</div>
       </div>
     </li>
 
@@ -1219,9 +1240,8 @@
         </div>
         <div class="award-meta-row">
           <span class="award-org">U.S. Department of State, Institute of International Education</span>
-          <button class="abstract-btn" data-label="Details" onclick="toggleAbstract(this)">+ Details</button>
+          <button class="abstract-btn" data-label="Details" onclick="openResearchModal({title:'Critical Language Scholarship (declined)',authors:'U.S. Department of State, Institute of International Education · March 2024',tags:['Scholarship','Indonesia','Language Study'],abstract:'Federal government funding to immersively study the language and culture of Indonesia over 8 weeks.'})">+ Details</button>
         </div>
-        <div class="abstract-body">Federal government funding to immersively study the language and culture of Indonesia over 8 weeks.</div>
       </div>
     </li>
   <div><!-- /awards-extra -->
@@ -1470,6 +1490,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+function openResearchModal(data) {
+  document.getElementById('researchModalTitle').textContent = data.title;
+  document.getElementById('researchModalAuthors').textContent = data.authors;
+  document.getElementById('researchModalText').textContent = data.abstract;
+  var tagsEl = document.getElementById('researchModalTags');
+  tagsEl.innerHTML = data.tags.map(function(t){ return '<span class="paper-tag">' + t + '</span>'; }).join('');
+  document.getElementById('researchModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeResearchModal() {
+  document.getElementById('researchModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleResearchModalClick(e) {
+  if (e.target === document.getElementById('researchModalOverlay')) closeResearchModal();
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeResearchModal(); });
 function toggleAbstract(btn) {
   const box = btn.parentElement.nextElementSibling;
   const open = box.classList.toggle('open');
@@ -1516,5 +1553,19 @@ function toggleAbstract(btn) {
   });
 </script>
 
+
+<div class="research-modal-overlay" id="researchModalOverlay" onclick="handleResearchModalClick(event)">
+  <div class="research-modal-box" role="dialog" aria-modal="true" aria-labelledby="researchModalTitle">
+    <div class="research-modal-header">
+      <h3 class="research-modal-title" id="researchModalTitle"></h3>
+      <button class="research-modal-close" onclick="closeResearchModal()" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="research-modal-authors" id="researchModalAuthors"></div>
+    <div class="research-modal-divider"></div>
+    <div class="research-modal-label">Abstract</div>
+    <p class="research-modal-text" id="researchModalText"></p>
+    <div class="research-modal-tags" id="researchModalTags"></div>
+  </div>
+</div>
 </body>
 </html>
