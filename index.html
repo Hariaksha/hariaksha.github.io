@@ -38,6 +38,9 @@
       --border:       #E2E2DC;
       --serif:        'EB Garamond', Georgia, serif;
       --sans:         'Inter', system-ui, sans-serif;
+      /* Cursor variables */
+      --cursor-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8 28 C8 28 6 16 16 8 C26 2 28 4 28 4 C28 4 30 6 24 16 C18 24 8 28 8 28Z' fill='%232d6a4f' stroke='%231b4332' stroke-width='1'/%3E%3Cpath d='M8 28 C12 20 18 14 26 6' stroke='%231b4332' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") 4 28, auto;
+      --cursor-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8 28 C8 28 6 16 16 8 C26 2 28 4 28 4 C28 4 30 6 24 16 C18 24 8 28 8 28Z' fill='%2395d5b2' stroke='%2352b788' stroke-width='1'/%3E%3Cpath d='M8 28 C12 20 18 14 26 6' stroke='%2352b788' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") 4 28, pointer;
     }
     /* ── Collapsible Section Toggle ── */
     .collapsible-extra {
@@ -60,7 +63,7 @@
       font-size: 0.76rem;
       font-weight: 500;
       color: var(--muted);
-      cursor: pointer;
+      cursor: var(--cursor-pointer);
       transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
     .section-toggle-btn:hover {
@@ -97,7 +100,7 @@
       font-size: 0.76rem;
       font-weight: 500;
       color: var(--muted);
-      cursor: pointer;
+      cursor: var(--cursor-default);
       transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
     .awards-toggle-btn:hover {
@@ -211,7 +214,7 @@
       text-transform: uppercase; color: var(--muted); transition: color .2s;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; font-size: 1.2rem; color: var(--text); }
+    .hamburger { display: none; background: none; border: none; cursor: var(--cursor-pointer); font-size: 1.2rem; color: var(--text); }
 
     /* ── Layout ── */
     main { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
@@ -321,7 +324,7 @@
     .badge-pub { background: var(--accent-light); color: var(--accent); }
 
     .abstract-btn {
-      background: none; border: none; cursor: pointer; font-size: 0.73rem;
+      background: none; border: none; cursor: var(--cursor-pointer); font-size: 0.73rem;
       font-weight: 500; color: var(--muted); padding: 0; transition: color .2s;
     }
     .abstract-btn:hover { color: var(--accent); }
@@ -361,7 +364,7 @@
       flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
       border: 1px solid var(--border, #e5e7eb); background: var(--bg-alt, #f5f5f5);
       color: var(--muted, #6b7280); display: grid; place-items: center;
-      font-size: 0.9rem; cursor: pointer; transition: background 0.15s, color 0.15s;
+      font-size: 0.9rem; cursor: var(--cursor-pointer); transition: background 0.15s, color 0.15s;
     }
     .research-modal-close:hover { background: var(--accent-light); color: var(--accent); }
     .research-modal-authors { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
@@ -624,7 +627,7 @@
       color: var(--accent);
       border: 1px solid var(--border);
       font-size: 1rem;
-      cursor: pointer;
+      cursor: var(--cursor-pointer);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -750,6 +753,26 @@
       border-radius: 4px;
       padding: 0.13rem 0.5rem;
       margin-bottom: 0.3rem;
+    }
+    /* Default cursor: green leaf */
+    *, *::before, *::after {
+      cursor: var(--cursor-default);
+    }
+
+    /* Hover cursor: light leaf on all interactive elements AND their children */
+    a, a *, a *::before, a *::after,
+    button, button *, button *::before, button *::after,
+    [role="button"], [role="button"] *,
+    [role="link"], [role="link"] *,
+    label, input[type="submit"], input[type="button"],
+    .btn, .btn *,
+    .feat-card, .feat-card *,
+    .meeting-card, .meeting-card *,
+    .social-link, .social-link *,
+    .btn-primary, .btn-primary *,
+    .btn-secondary, .btn-secondary *
+    .exp-toggle-switch, .exp-toggle-switch * {   /* 👈 add this line */
+      cursor: var(--cursor-pointer);
     }
   </style>
 </head>
@@ -1404,6 +1427,11 @@
     <i class="fab fa-instagram"></i> Instagram
   </a>
 </p>
+
+<div style="margin-top: 2rem; padding: 1rem 1.25rem; background: #f0faf4; border-radius: 8px; border: 1px solid #d0e8d8; display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.9rem;">
+  <span style="font-size: 1.3rem;">☕</span>
+  <span>If my research or writing has been helpful, you can <a href="https://buymeacoffee.com/hariaksha" target="_blank" rel="noopener noreferrer" style="color: #2d6a4f; font-weight: 600;">buy me a coffee</a> — it means a lot!</span>
+</div>
 </section>
 
 </main>
