@@ -63,20 +63,17 @@ The `redesign` branch contains a full ground-up redesign of the site with a clea
 
 ## File Structure
 hariaksha.github.io/
-├── index.html # Main single-page site
-├── styles.css # All styling and CSS variables
-├── scripts.js # Interactivity (dark mode, modals, toggles)
-├── CNAME # Custom domain configuration
-├── sitemap.xml # SEO sitemap
-├── robots.txt # Search engine directives
-├── assets/
-│ ├── img/ # Headshot and press/featured images
-│ └── files/ # CV / resume PDF
-├── coptic-binding/ # Sub-page: bookbinding project
-├── french-link-stitch/ # Sub-page: bookbinding project
-├── .devcontainer/ # Dev container configuration
-└── .github/ # GitHub Actions workflows
-
+- index.html # Main single-page site
+- styles.css # All styling and CSS variables
+- scripts.js # Interactivity (dark mode, modals, toggles)
+- NAME # Custom domain configuration
+- sitemap.xml # SEO sitemap
+- robots.txt # Search engine directives
+- assets/
+  - img/ # Headshot and press/featured images
+  - files/ # CV / resume PDF
+- .devcontainer/ # Dev container configuration
+- .github/ # GitHub Actions workflows
 
 ---
 
