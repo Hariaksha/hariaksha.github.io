@@ -1,0 +1,244 @@
+% Document class and font size
+\documentclass[a4paper,9pt]{extarticle}
+
+% Packages
+\usepackage[utf8]{inputenc} % For input encoding
+\usepackage{geometry} % For page margins
+\geometry{a4paper, margin=1in} % Set paper size and margins
+\usepackage{titlesec} % For section title formatting
+\usepackage{enumitem} % For itemized list formatting
+\usepackage{hyperref} % For hyperlinks
+\usepackage{lipsum} % For filler text
+\usepackage{changepage} %For Indenting
+\usepackage{fancyhdr}
+\usepackage[en-GB]{datetime2}
+
+% Formatting
+\newcommand{\empitem}[2]{\noindent#1\hfill#2\par\vspace{2pt}}
+\setlist{noitemsep} % Removes item separation
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}[\titlerule] % Section title format
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip} % Section title spacing
+\newenvironment{subs} %Indenting
+  {\adjustwidth{2em}{0pt}}
+  {\endadjustwidth}
+\newcommand{\presitem}[3]{%
+\noindent\hangindent=2em\hangafter=1
+  #1. #2. \textit{#3}\par\vspace{4pt}%
+}
+
+\newcommand{\eduitem}[4]{%
+  \noindent\textbf{#1}\hfill #2\\
+  \textsc{#3}\hfill #4
+}
+
+\newcommand{\projitem}[3]{%
+  \noindent\textbf{#1}\\[1pt]
+  \textsc{#2}
+  \begin{itemize}[leftmargin=1.5em, topsep=4pt, partopsep=0pt, itemsep=0pt]
+    \item #3
+  \end{itemize}
+  \vspace{6pt}
+}
+
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+% Begin document
+\begin{document}
+
+% Disable page numbers
+\pagestyle{fancy}
+\fancyhf{} % clear all header/footer fields
+\renewcommand{\headrulewidth}{0pt} % no header line
+\renewcommand{\footrulewidth}{0pt} % no footer line
+\fancyfoot[L]{\small\DTMtoday}
+\fancyfoot[C]{\small Hariaksha Gunda \(\cdot\) Curriculum Vitae}
+\fancyfoot[R]{\small\thepage}
+
+% Header
+\begin{center}
+    \textbf{\Large HARIAKSHA GUNDA }\\[3pt] % Name
+    \textbf{Curriculum Vitae}\\[1pt] % CV
+    United States | \href{mailto:hgunda@crimson.ua.edu}{hgunda@crimson.ua.edu} | \href{https://www.hariaksha.com}{hariaksha.com} % Contact info
+\end{center}
+
+%------------------------
+\section*{EDUCATION}
+
+\eduitem{The University of Alabama}{Tuscaloosa, AL}
+  {B.S. in Data Science}{08/2022 -- 05/2027}
+\begin{itemize}[leftmargin=1.5em, topsep=3pt, partopsep=0pt, itemsep=0pt]
+  \item Minors: Mathematics, Computer Science, Economics
+  \item Relevant Coursework: Development Economics, Non-Linear Optimization Theory, Real Analysis I-II, Machine Learning, Database Management Systems
+  \item GPA: 4.00/4.00
+\end{itemize}
+
+\vspace{0.5\baselineskip}
+
+\eduitem{The University of Alabama}{Tuscaloosa, AL}
+  {B.A. in Foreign Languages and Literature}{08/2022 -- 05/2027}
+\begin{itemize}[leftmargin=1.5em, topsep=3pt, partopsep=0pt, itemsep=0pt]
+  \item Concentration: German Language and Literature
+  \item Minors: International Studies, Public Policy Studies, Global and Cultural Perspectives
+  \item Relevant Coursework: Issues in Global Governance, Environmental Decision-Making, International Social Work, American Public Policy
+  \item GPA: 4.00/4.00
+\end{itemize}
+\section*{EXPERIENCE}
+
+\empitem{\textbf{Research Assistant}, UA Culverhouse College of Business}{01/2024 -- Present}
+\empitem{\textbf{Research Assistant}, The University of Chicago}{06/2026 -- 07/2026}
+\empitem{\textbf{Visiting Researcher}, Paderborn Research Center for Sustainable Economy}{05/2025 - 08/2025}
+\empitem{\textbf{Data Scientist}, Planet Indonesia International}{12/2024 - 04/2025}
+\empitem{\textbf{Research Assistant}, UA Digital Forensics and Cyber Security Lab}{08/2023 - 12/2023}
+\empitem{\textbf{Data Scientist}, Alabama Department of Public Health Center for Health Statistics}{05/2023 - 06/2023}
+
+\section*{HONORS AND AWARDS}
+
+\empitem{\textbf{Ambassador}, Institute for Economics and Peace}{04/2026 -- Present}
+\empitem{\textbf{Scholarship} (7x, applied each semester), Zeta Psi Educational Foundation}{01/2023 -- 03/2026}
+\empitem{\textbf{REAL List: Global and Intercultural Learning Top 25}, The University of Alabama}{12/2025}
+\empitem{\textbf{Microsoft Emerging Leader}, Microsoft Security}{04/2025 -- Present}
+\empitem{\textbf{Gilman Scholars Brussels EU Study Tour Selection}, US Department of State }{06/2025}
+\empitem{\textbf{National Award for Undergraduates of German}, German National Honor Society}{04/2025}
+\empitem{\textbf{Gilman Research Scholarship}, US Department of State }{12/2024 - 08/2025}
+\empitem{\textbf{Boren Scholarship}, US Department of Defense }{04/2024 - 04/2025}
+\empitem{\textbf{Outstanding Cultural Organization}, UA (associated with South Asian Culture Club)}{04/2024}
+\empitem{\textbf{Critical Language Scholarship}, US Department of State (declined)}{03/2024}
+\empitem{\textbf{Excellence Second-Year}, University of Alabama German Department}{04/2023}
+\empitem{\textbf{Best Event Award}, UA (associated with South Asian Culture Club Mock Shaadi)}{04/2023}
+\empitem{\textbf{Children of Associates Premier Scholarship} (3x), H\&R Block}{09/2022 -- 09/2023}
+\empitem{\textbf{Crimson Scholar}, The University of Alabama}{08/2022 -- 05/2024}
+\empitem{\textbf{National Merit Finalist Scholarship}, National Merit Scholarship Corporation}{04/2022}
+
+
+%------------------------
+% Presentations Section
+\section*{PRESENTATIONS}
+\subsection*{Oral Presentations}
+\presitem{Paderborn Research Center for Sustainable Economy Brown Bag Seminar}{August 2025}{The Economics of Data Privacy: Regulatory Uncertainty and Corporate Responses to the EU GDPR}
+\presitem{Planet Indonesia International Intern Symposium}{April 2025}{Marine Environmental Risk Assessments for Indonesian Provinces using Data on Ecology and Socio-economic and Environmental Resilience}
+\presitem{State University of Malang Student Seminars}{December 2024}{Assessment of Marine Environmental Risks in Indonesia}
+
+\subsection*{Poster Presentations}
+
+\presitem{University of Alabama Undergraduate Research and Creative Activity Conference}{April 2026}{The Heat Is On: Causal Impacts of Wildfires on Conflict Probability and Intensity in Indonesia}
+
+\presitem{University of Alabama Undergraduate Research and Creative Activity Conference}{April 2026}{The Economics of Data Privacy: Regulatory Uncertainty and Corporate Responses to the EU GDPR}
+
+\presitem{University of Alabama Undergraduate Research and Creative Activity Conference}{March 2024}{The Impact of Linguistic Features on Revenues using NLP on Mission Statements of Tax-Exempt Organizations}
+
+\section*{CERTIFICATIONS AND SPECIAL LEARNING}
+\empitem{\textbf{How Tech Drives Sustainability}, LinkedIn Learning}{06/2026}
+\empitem{\textbf{IEP Ambassador Seminars}, Institute for Economics and Peace}{05/2026}
+\empitem{\textbf{Positive Peace Academy}, Institute for Economics and Peace}{02/2026}
+\empitem{\textbf{Microsoft Emerging Leader Professional Development Series}, Microsoft Security}{08/2025}
+\empitem{\textbf{Climate Catalysts Mentorship Program}, UNFCCC}{05/2025}
+\empitem{\textbf{Becoming a Climate Champion}, UNITAR}{04/2025}
+\empitem{\textbf{Digital4Sustainability Learning Path}, UNSSC}{03/2025}
+\empitem{\textbf{Supervised Machine Learning: Regression and Classification}, DeepLearning.AI}{02/2025}
+\empitem{\textbf{AI For Everyone}, DeepLearning.AI}{01/2024}
+\empitem{\textbf{Cybersecurity Foundations Specialization}, InfoSEC}{05/2023}
+\empitem{\textbf{Python Essential Training}, LinkedIn Learning}{11/2022}
+\empitem{\textbf{Summer Science Institute}, Auburn University College of Engineering}{06/2021}
+
+
+\section*{TEACHING}
+\empitem{\textbf{Data Analysis with R: Short Course}, Teaching 6 colleagues at Planet Indonesia}{01/2025 -- 03/2025}
+\empitem{\textbf{English tutoring}, Teaching 20+ students at English Club Pontianak}{03/2025}
+
+\section*{PROJECTS}
+\subsection*{Current Projects}
+
+
+\projitem{The University of Alabama}
+  {Co-Investigator with Dr. Michael Price}
+  {Climate Pressures and Conflict in Indonesia}
+  
+\projitem{The University of Chicago, The University of Alabama, The University of Toronto}
+  {Research Assistant to Dr. John List, Dr. Michael Price, and Dr. Angela Doku}
+  {Sentiment Analysis of Climate Disaster News Articles in the USA}
+
+\projitem{The University of Alabama}
+  {Research Assistant to Dr. Michael Price}
+  {Impact of Mission Statement Linguistic Features on Nonprofit Revenues}
+
+\projitem{ZEW Mannheim, The University of Alabama}
+  {Research Assistant to Dr. Martin Kesternich and Dr. Michael Price}
+  {The Effects of GDPR on Firm Behavior and Innovation}
+
+
+\subsection*{Completed Projects}
+
+\projitem{Planet Indonesia International}
+  {Data Scientist with Adam Miller}
+  {Marine Environmental Risk Assessments for Indonesian Provinces}
+
+\section*{EXTRACURRICULARS AND AFFILIATIONS}
+\empitem{\textbf{Research Ambassador}, UA Office of Undergraduate Research}{04/2026 -- 05/2027}
+\empitem{\textbf{Member}, Blue Key Honor Society}{04/2026 -- Present}
+\empitem{\textbf{Member}, Phi Kappa Phi Honor Society}{04/2026 -- Present}
+
+\empitem{\textbf{Member}, Pi Mu Epsilon, the National Honor Society for Mathematics}{04/2026 -- Present}
+\empitem{\textbf{Member}, UA Philomathic Literary Society}{03/2026 -- 05/2027}
+\empitem{\textbf{Member}, UA Education Abroad Alumni Association}{03/2026 -- Present}
+\empitem{\textbf{President}, United Nations Association of the USA at UA}{08/2025 -- 05/2026}
+\empitem{\textbf{Technology Mechanisms Working Group Member}, UNFCCC YOUNGO}{06/2025 -- Present}
+\empitem{\textbf{Member}, United Nations Association of the USA}{06/2025 -- 06/2026}
+\empitem{\textbf{Member}, Asian Environmental Youth Network}{06/2025 -- Present}
+\empitem{\textbf{Data Volunteer}, Oxford Net Zero Tracker}{05/2025 -- Present}
+\empitem{\textbf{Member}, Delta Phi Alpha (German National Honor Society)}{05/2024 -- Present}
+\empitem{\textbf{Member}, National Security Education Program (NSEP) Alumni Association}{05/2024 -- Present}
+\empitem{\textbf{Honors College Ambassador}, UA Honors College}{03/2024 -- 05/2027}
+\empitem{\textbf{Scholarship Officer}, Zeta Psi International Fraternity}{01/2023 -- 05/2027}
+\empitem{\textbf{Member}, Golden Key Honor Society}{09/2022 -- Present}
+\empitem{\textbf{Secretary \& Advisor}, UA South Asian Culture Club}{08/2022 -- 05/2027}
+\empitem{\textbf{Member}, Association for Computing Machinery}{08/2022 -- Present}
+\empitem{\textbf{Member}, Society of Asian Scientists and Engineers}{08/2022 -- Present}
+\empitem{\textbf{Member}, UA German Club}{08/2022 -- 05/2027}
+\empitem{\textbf{Choreographer, Teacher, Dancer}, Nach Basanti (Indian fusion dance team)}{08/2022 -- 05/2027}
+
+
+%------------------------
+\section*{FEATURED}
+    \subsection*{Podcasts}
+       
+    
+\presitem{Put the Guidebook Down}{April 2026}{\href{https://open.spotify.com/episode/5pUa7CEhtBdIxU1TMm6Mwv?si=SMSwn-V3RhC-P7_yMjGHmQ
+}{Speaking the Place: How Language Changes the Way You Travel}}
+\presitem{Put the Guidebook Down}{December 2025}{\href{https://open.spotify.com/episode/7b4w5RMeKO1g6JYgzNwgYc?si=c1360d81a4894d30
+}{The Power of  a Gap Year: Breaking Out of the Linear Life Path}}
+
+    \subsection*{Datasets}
+    \presitem{Oxford Net Zero Tracker}{September 2025}{\href{https://zenodo.org/records/17143240
+}{Net Zero Stocktake 2025}}
+
+
+    \subsection*{Articles}
+    \presitem{Universität Paderborn}{June 2025}{\href{https://wiwi.uni-paderborn.de/en/researching/forschungszentren-labore/parsec/news/news-entry/junger-forscher-hariaksha-gunda-aus-den-usa-zu-besuch-im-parsec
+}{Junger Forscher Hariaksha Gunda aus den USA zu Besuch im PARSEC}}
+
+\presitem{The University of Alabama}{April 2024}{\href{https://news.ua.edu/2024/04/3-ua-students-earn-boren-scholarships-for-foreign-study/
+}{3 UA Students Earn Boren Scholarships for Foreign Study}}
+
+\presitem{The University of Alabama}{April 2024}{\href{https://news.ua.edu/2024/04/6-ua-students-earn-critical-language-scholarships/
+}{6 UA Students Earn Critical Language Scholarships}}
+
+\presitem{H\&R Block Newsroom}{August 2023}{\href{https://www.hrblock.com/tax-center/newsroom/people-culture/2023-caps-scholarship-award-winners/
+}{H\&R Block Awards \$100,000 in Scholarships to Students Championing Community Impact Across the Country}}
+
+
+%------------------------
+% Skills Section
+\section*{SKILLS}
+
+\noindent\textbf{Technical Skills:} Python, Econometrics, Field Experiments, R, SQL, MATLAB, TensorFlow, Webscraping, Database Management, Git, HTML/CSS/JS, LaTeX, Stata, QGIS
+
+\vspace{4pt}
+
+\noindent\textbf{Languages:} \textit{German} (CEFR B1: Intermediate Professional Proficiency) $|$ \textit{Indonesian} (ACTFL 2: Intermediate Professional Proficiency) $|$ \textit{Telugu} (Basic)
+
+
+
+% End document
+\end{document}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
