@@ -96,10 +96,8 @@ function toggleAbstract(btn) {
   const open = box.classList.toggle('open');
   const label = btn.dataset.label || 'Abstract';
   btn.textContent = open ? '\u2212 ' + label : '+ ' + label;}
-  // Active nav highlighting on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navAs    = document.querySelectorAll('.nav-links a');
   // Scroll progress bar + back-to-top
+  // (nav "active" state is now set server-side per page in _includes/nav.html)
   const progressBar = document.getElementById('scroll-progress');
   const backToTop   = document.getElementById('back-to-top');
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
@@ -111,13 +109,6 @@ function toggleAbstract(btn) {
     if (progressBar) progressBar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
     // Show/hide back-to-top after 400px
     if (backToTop) backToTop.classList.toggle('visible', scrolled > 400);
-    // Active nav
-    let cur = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
-    navAs.forEach(a => {
-      a.classList.remove('active');
-      if (a.getAttribute('href') === '#' + cur) a.classList.add('active');
-    });
   }, { passive: true });
   // Dark mode toggle
   const themeToggle = document.getElementById('theme-toggle');
@@ -135,3 +126,44 @@ function toggleAbstract(btn) {
     localStorage.setItem('theme', next);
     themeIcon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
   });
+
+  // Contact form (submits via Web3Forms so the email address is never exposed client-side)
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const status  = document.getElementById('contact-form-status');
+      const btn     = document.getElementById('contact-submit-btn');
+      const btnHtml = btn.innerHTML;
+
+      btn.disabled = true;
+      btn.innerHTML = 'Sending…';
+      status.textContent = '';
+      status.classList.remove('success', 'error');
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+      })
+        .then(res => res.json().then(data => ({ ok: res.ok, data })))
+        .then(({ ok, data }) => {
+          if (ok) {
+            status.classList.add('success');
+            status.textContent = "Thanks! Your message has been sent — I'll get back to you soon.";
+            contactForm.reset();
+          } else {
+            status.classList.add('error');
+            status.textContent = data.message || 'Something went wrong. Please try again.';
+          }
+        })
+        .catch(() => {
+          status.classList.add('error');
+          status.textContent = 'Something went wrong. Please try again, or reach out on Instagram.';
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.innerHTML = btnHtml;
+        });
+    });
+  }

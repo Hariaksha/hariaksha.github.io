@@ -1,0 +1,66 @@
+---
+layout: default
+title: "Contact | Hari Gunda"
+description: "Get in touch with Hari Gunda for collaboration, research, or a conversation."
+---
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <p class="contact-lead">
+    Interested in collaboration, research, or just a conversation?
+    I&rsquo;d love to hear from you &mdash; please have a low bar for reaching out.
+  </p>
+
+  <p class="meeting-label">Schedule a meeting</p>
+  <div class="meeting-grid">
+    <a href="https://zcal.co/hariaksha/30min" target="_blank" class="meeting-card">
+      <div class="meeting-mins">30 min</div>
+      <div class="meeting-desc">Quick chat / intro call</div>
+      <div class="meeting-cta">Book a time <i class="fas fa-arrow-right" style="font-size:.6rem;"></i></div>
+    </a>
+    <a href="https://zcal.co/hariaksha/60min" target="_blank" class="meeting-card">
+      <div class="meeting-mins">60 min</div>
+      <div class="meeting-desc">Deep dive / collaboration</div>
+      <div class="meeting-cta">Book a time <i class="fas fa-arrow-right" style="font-size:.6rem;"></i></div>
+    </a>
+  </div>
+
+  <p class="meeting-label" style="margin-top:2.5rem;">Or send a message</p>
+  <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <!-- ✏️ Replace with your own key from https://web3forms.com (free — enter your email there to get one emailed to you; the key itself does not expose your email) -->
+    <input type="hidden" name="access_key" value="895b3ca0-0a45-4168-a21a-23921c70bc22">
+    <input type="hidden" name="subject" value="New message from hariaksha.com">
+    <input type="checkbox" name="botcheck" class="contact-form-honeypot" tabindex="-1" autocomplete="off">
+
+    <div class="form-row">
+      <label for="cf-name">Name</label>
+      <input type="text" id="cf-name" name="name" required>
+    </div>
+    <div class="form-row">
+      <label for="cf-email">Email</label>
+      <input type="email" id="cf-email" name="email" required>
+    </div>
+    <div class="form-row">
+      <label for="cf-message">Message</label>
+      <textarea id="cf-message" name="message" rows="6" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary" id="contact-submit-btn">
+      <i class="fas fa-paper-plane"></i> Send Message
+    </button>
+    <p id="contact-form-status" class="contact-form-status" role="status"></p>
+  </form>
+
+  <p class="contact-email" style="margin-top: 1.75rem;">
+    Or find me on&nbsp;
+    <a href="https://instagram.com/hariaksha" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+  </p>
+
+<div style="margin-top: 2rem; padding: 1rem 1.25rem; background: #f0faf4; border-radius: 8px; border: 1px solid #d0e8d8; display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.9rem;">
+  <span style="font-size: 1.3rem;">☕</span>
+  <span>If my research or writing has been helpful, you can <a href="https://buymeacoffee.com/hariaksha" target="_blank" rel="noopener noreferrer" style="color: #2d6a4f; font-weight: 600;">buy me a coffee</a> — it means a lot!</span>
+</div>
+</section>

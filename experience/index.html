@@ -1,0 +1,112 @@
+---
+layout: default
+title: "Experience | Hari Gunda"
+description: "Research and professional experience across the United States, Indonesia, and Germany."
+---
+
+<!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <div class="exp-filter-row">
+    <span class="exp-toggle-label">Professional</span>
+    <label class="exp-toggle-switch" aria-label="Toggle fun experiences">
+      <input type="checkbox" id="exp-toggle-checkbox" onchange="filterExp(this.checked ? 'fun' : 'professional')">
+      <span class="exp-toggle-track">
+        <span class="exp-toggle-thumb"></span>
+      </span>
+    </label>
+    <span class="exp-toggle-label" id="exp-fun-label">Fun</span>
+  </div>
+  <ul class="timeline">
+
+    <li class="tl-item" data-exp-type="fun">
+      <span class="tl-date">June 2025 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Data Volunteer</p>
+        <p class="tl-sub">Remote</p>
+        <p class="tl-desc">In collaboration with the Net Zero Tracker at Oxford, I collect and review data to track the net zero commitments of all nations, the regions of the top 25-emitting countries, cities with over half a million inhabitants, and the 2000 biggest publicly-listed companies in the world. I am a contributor to the <a href="https://zenodo.org/records/17143240">Net Zero Stocktake 2025</a>.</p>
+      </div>
+    </li>
+
+    <li class="tl-item" data-exp-type="fun">
+      <span class="tl-date">June 2022 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Language Learning &amp; Cultural Immersion</p>
+        <p class="tl-sub">Indonesia, Germany, and the US</p>
+        <p class="tl-desc">Working on my Indonesian, German, and Telugu through Anki, classroom instruction, immersion, conversation partners, and media.</p>
+      </div>
+    </li>
+
+        <li class="tl-item" data-exp-type="fun">
+      <span class="tl-date">December 2022 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Avid Reader</p>
+        <p class="tl-sub">Goodreads: @hariaksha</p>
+        <p class="tl-desc">Reading across fiction, history, and social sciences &mdash; especially books connected to places and topics I research. I also join a book club wherever I live. I currently meet with the Philomathic Literary Society at the University of Alabama. You can see a list of my all-time favorite books by clicking <a href="https://www.goodreads.com/hariaksha">here</a> and finding the "goated" shelf.</p>
+      </div>
+    </li>
+
+    <div class="collapsible-extra" id="fun-extra">
+    <li class="tl-item" data-exp-type="fun">
+      <span class="tl-date">September 2018 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Dance</p>
+        <p class="tl-sub">Alabama &amp; East Java</p>
+        <p class="tl-desc">Performing in dance groups since high school and currently with Nach Basanti at the University of Alabama. Mostly Indian fusion with a little experience in K-Pop and East Javanese traditional. I also taught Indian fusion from 2022-24.</p>
+      </div>
+    </li>
+    </div>
+    <!-- The "Show _ more" button for Fun -->
+<button class="section-toggle-btn" id="fun-toggle-btn"
+        onclick="toggleSection('fun-extra', 'fun-toggle-btn')"
+        aria-expanded="false" style="display:none;">
+  <i class="fas fa-chevron-down"></i>
+  <span class="toggle-label">Loading</span>
+</button>
+</li>
+    <li class="tl-item">
+      <span class="tl-date">June 2026 &ndash; July 2026</span>
+      <div>
+        <p class="tl-title">Research Assistant</p>
+        <p class="tl-sub">The University of Chicago &middot; Chicago, Illinois, USA</p>
+        <p class="tl-desc">Research Assistant to Dr. John List, working on projects in Field Experiments for Applied Economics.</p>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <span class="tl-date">January 2023 &ndash; Present</span>
+      <div>
+        <p class="tl-title">Research Assistant</p>
+        <p class="tl-sub">The University of Alabama &middot; Tuscaloosa, Alabama, USA</p>
+        <p class="tl-desc">Research Assistant to Dr. Michael Price, working on projects related to Environmental Economics, Economics of Charity, and Peace and Conflict.</p>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <span class="tl-date">May 2025 &ndash; August 2025</span>
+      <div>
+        <p class="tl-title">Visiting Researcher</p>
+        <p class="tl-sub">Paderborn Research Center for Sustainable Economy (PARSEC) &middot; Paderborn, Germany</p>
+        <p class="tl-desc">Research Assistant to Dr. Martin Kesternich, working on project evaluating impact of EU GDPR on company behaviors related to data sharing, innovation, and workforce adjustments.</p>
+      </div>
+    </li>
+    <!-- items 1–3 stay as normal <li> above this -->
+
+    <div class="collapsible-extra" id="experience-extra">
+        <li class="tl-item">
+          <span class="tl-date">December 2024 &ndash; April 2025</span>
+          <div>
+            <p class="tl-title">Data Scientist</p>
+            <p class="tl-sub">Yayasan Planet Indonesia &middot; Pontianak, Indonesia</p>
+            <p class="tl-desc">Created marine environmental risk assessments for Indonesian provinces to inform conservation and funding priorities for the conservation nonprofit.</p>
+          </div>
+        </li>
+    <div><!-- /experience-extra -->
+  </ul>
+  <button class="section-toggle-btn" id="exp-toggle-btn"
+          onclick="toggleSection('experience-extra','exp-toggle-btn')"
+          aria-expanded="false">
+    <i class="fas fa-chevron-down"></i>
+    <span class="toggle-label">Loading…</span>
+  </button>
+</section>

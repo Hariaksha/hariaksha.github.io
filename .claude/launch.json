@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jekyll-serve",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "export PATH=\"/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH\"; cd \"/Users/hariaksha/Documents/GitHub/hariaksha.github.io\" && jekyll serve --port 4000"],
+      "port": 4000
+    }
+  ]
+}
