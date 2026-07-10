@@ -15,30 +15,6 @@ function filterExp(type) {
   if (visible.length) visible[visible.length - 1].classList.add('tl-last-visible');
 }
 document.addEventListener('DOMContentLoaded', () => filterExp('professional'));
-// Abstract toggles
-function toggleSection(extraId, btnId) {
-  const extra = document.getElementById(extraId);
-  const btn   = document.getElementById(btnId);
-  const count = extra.querySelectorAll('li').length;
-  const isOpen = extra.classList.toggle('open');
-  btn.classList.toggle('open', isOpen);
-  btn.setAttribute('aria-expanded', isOpen);
-  btn.querySelector('.toggle-label').textContent = isOpen
-    ? 'Show less'
-    : 'Show ' + count + ' more';
-}
-
-// Set initial button labels on page load
-document.addEventListener('DOMContentLoaded', () => {
-  [['awards-extra','awards-toggle-btn']].forEach(([extraId, btnId]) => {
-    const extra = document.getElementById(extraId);
-    const btn   = document.getElementById(btnId);
-    if (extra && btn) {
-      const count = extra.querySelectorAll('li').length;
-      btn.querySelector('.toggle-label').textContent = 'Show ' + count + ' more';
-    }
-  });
-});
 function openResearchModal(data) {
   document.getElementById('researchModalTitle').textContent = data.title;
   document.getElementById('researchModalAuthors').textContent = data.authors;
