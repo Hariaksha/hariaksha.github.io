@@ -1,55 +1,14 @@
 
 function filterExp(type) {
   const allItems = document.querySelectorAll('#experience .tl-item');
-  const proExtra = document.getElementById('experience-extra');
-  const proToggle = document.getElementById('exp-toggle-btn');
-  const funExtra  = document.getElementById('fun-extra');
-  const funToggle = document.getElementById('fun-toggle-btn');
-
-  if (type === 'fun') {
-    allItems.forEach(item => {
-      if (!item.dataset.expType || item.dataset.expType === 'professional') {
-        item.style.display = 'none';
-      } else {
-        item.classList.add('exp-visible');
-      }
-    });
-    if (proExtra) proExtra.classList.remove('open');
-    if (proToggle) proToggle.style.display = 'none';
-    if (funExtra && funToggle) {
-      const count = funExtra.querySelectorAll('.tl-item[data-exp-type="fun"]').length;
-      funExtra.classList.remove('open');
-      funToggle.classList.remove('open');
-      funToggle.setAttribute('aria-expanded', 'false');
-      funToggle.querySelector('.toggle-label').textContent = `Show ${count} more`;
-      funToggle.style.display = count > 0 ? 'inline-flex' : 'none';
+  allItems.forEach(item => {
+    if (!item.dataset.expType || item.dataset.expType === 'professional') {
+      item.style.display = type === 'fun' ? 'none' : '';
+    } else {
+      item.classList.toggle('exp-visible', type === 'fun');
     }
-  } else {
-    allItems.forEach(item => {
-      if (!item.dataset.expType || item.dataset.expType === 'professional') {
-        item.style.display = '';
-      } else {
-        item.classList.remove('exp-visible');
-      }
-    });
-    if (proExtra && proToggle) {
-      const count = proExtra.querySelectorAll('.tl-item').length;
-      proExtra.classList.remove('open');
-      proToggle.classList.remove('open');
-      proToggle.setAttribute('aria-expanded', 'false');
-      proToggle.querySelector('.toggle-label').textContent = `Show ${count} more`;
-      proToggle.style.display = count > 0 ? 'inline-flex' : 'none';
-    }
-    if (funExtra) funExtra.classList.remove('open');
-    if (funToggle) funToggle.style.display = 'none';
-  }
+  });
 }
-  // Hamburger menu
-  const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
 // Abstract toggles
 function toggleSection(extraId, btnId) {
   const extra = document.getElementById(extraId);
@@ -65,7 +24,7 @@ function toggleSection(extraId, btnId) {
 
 // Set initial button labels on page load
 document.addEventListener('DOMContentLoaded', () => {
-  [['experience-extra','exp-toggle-btn'], ['awards-extra','awards-toggle-btn']].forEach(([extraId, btnId]) => {
+  [['awards-extra','awards-toggle-btn']].forEach(([extraId, btnId]) => {
     const extra = document.getElementById(extraId);
     const btn   = document.getElementById(btnId);
     if (extra && btn) {

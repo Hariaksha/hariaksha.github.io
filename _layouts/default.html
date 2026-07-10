@@ -37,13 +37,15 @@
   <i class="fas fa-arrow-up"></i>
 </button>
 
-{% include nav.html %}
+<div class="page-layout">
+{% include sidebar.html %}
 
-<main>
+<main class="main-content">
 {{ content }}
-</main>
-
 {% include footer.html %}
+</main>
+</div>
+
 <script src="/scripts.js"></script>
 {% include research-modal.html %}
 </body>
