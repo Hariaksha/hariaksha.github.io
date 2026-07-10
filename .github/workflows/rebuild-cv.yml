@@ -1,0 +1,42 @@
+name: Rebuild CV PDF
+
+on:
+  schedule:
+    # 06:00 UTC daily (~midnight Central Time), so the footer date on the CV
+    # stays current
+    - cron: '0 6 * * *'
+  push:
+    paths:
+      - 'assets/files/CV/CV.tex'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Tectonic
+        uses: wtfjoke/setup-tectonic@v4
+        with:
+          tectonic-version: 'latest'
+
+      - name: Compile CV.tex
+        working-directory: assets/files/CV
+        run: tectonic CV.tex
+
+      - name: Commit and push if CV.pdf changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/files/CV/CV.pdf
+          if git diff --staged --quiet; then
+            echo "No changes to CV.pdf"
+          else
+            git commit -m "Auto-update CV.pdf date [skip ci]"
+            git push
+          fi
