@@ -409,6 +409,8 @@ section:last-of-type { border-bottom: none; }
 .pill-minor {
     background: #EEF2FF; color: #3730A3; border: 1px solid #C7D2FE;
 }
+.edu-coursework { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; line-height: 1.6; }
+.edu-coursework strong { color: var(--text); font-weight: 600; }
 
 /* ── Featured / Press ── */
 .featured-track-wrap {
