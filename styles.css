@@ -393,6 +393,7 @@ section:last-of-type { border-bottom: none; }
     padding: 1.5rem 0; border-bottom: 1px solid var(--border);
 }
 .tl-item:last-child { border-bottom: none; }
+.tl-item.tl-last-visible { border-bottom: none; }
 .tl-date { font-size: 0.77rem; color: var(--muted); font-weight: 500; padding-top: 0.1rem; }
 .tl-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.14rem; }
 .tl-sub { font-size: 0.86rem; color: var(--muted); margin-bottom: 0.28rem; }

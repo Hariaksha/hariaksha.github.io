@@ -1,14 +1,20 @@
 
 function filterExp(type) {
-  const allItems = document.querySelectorAll('#experience .tl-item');
+  const allItems = Array.from(document.querySelectorAll('#experience .tl-item'));
+  const visible = [];
   allItems.forEach(item => {
-    if (!item.dataset.expType || item.dataset.expType === 'professional') {
+    item.classList.remove('tl-last-visible');
+    const isFun = item.dataset.expType === 'fun';
+    if (!isFun) {
       item.style.display = type === 'fun' ? 'none' : '';
     } else {
       item.classList.toggle('exp-visible', type === 'fun');
     }
+    if (isFun === (type === 'fun')) visible.push(item);
   });
+  if (visible.length) visible[visible.length - 1].classList.add('tl-last-visible');
 }
+document.addEventListener('DOMContentLoaded', () => filterExp('professional'));
 // Abstract toggles
 function toggleSection(extraId, btnId) {
   const extra = document.getElementById(extraId);
