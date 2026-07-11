@@ -442,6 +442,7 @@ section:last-of-type { border-bottom: none; }
 }
 .feat-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
 .feat-img-icon i { font-size: 2rem; color: var(--muted); }
+.feat-img-icon img { width: auto; height: auto; max-width: 75%; max-height: 60%; object-fit: contain; }
 
 .feat-body { padding: 0.85rem; display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
 .feat-source { font-size: 0.7rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
