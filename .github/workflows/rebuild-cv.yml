@@ -25,18 +25,32 @@ jobs:
         with:
           tectonic-version: 'latest'
 
+      - name: Show runner date (debug)
+        run: date -u
+
       - name: Compile CV.tex
         working-directory: assets/files/CV
-        run: tectonic CV.tex
+        run: tectonic --keep-logs CV.tex
+
+      - name: Install poppler-utils (debug text extraction)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
+      - name: Show compiled footer date (debug)
+        working-directory: assets/files/CV
+        run: pdftotext -layout CV.pdf - | tail -3
+
+      - name: Show git status before commit (debug)
+        run: git status --porcelain -- assets/files/CV/CV.pdf
 
       - name: Commit and push if CV.pdf changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/files/CV/CV.pdf
-          if git diff --staged --quiet; then
-            echo "No changes to CV.pdf"
-          else
+          git add -f assets/files/CV/CV.pdf
+          if git status --porcelain -- assets/files/CV/CV.pdf | grep -q .; then
             git commit -m "Auto-update CV.pdf date [skip ci]"
             git push
+            echo "Committed and pushed updated CV.pdf"
+          else
+            echo "No changes to CV.pdf detected"
           fi
