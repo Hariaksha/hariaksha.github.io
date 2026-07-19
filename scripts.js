@@ -1,18 +1,50 @@
 
 function filterExp(type) {
+  const timeline = document.querySelector('#experience .timeline');
   const allItems = Array.from(document.querySelectorAll('#experience .tl-item'));
-  const visible = [];
-  allItems.forEach(item => {
-    item.classList.remove('tl-last-visible');
-    const isFun = item.dataset.expType === 'fun';
-    if (!isFun) {
-      item.style.display = type === 'fun' ? 'none' : '';
-    } else {
-      item.classList.toggle('exp-visible', type === 'fun');
-    }
-    if (isFun === (type === 'fun')) visible.push(item);
-  });
-  if (visible.length) visible[visible.length - 1].classList.add('tl-last-visible');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function applyVisibility() {
+    const visible = [];
+    allItems.forEach(item => {
+      item.classList.remove('tl-last-visible');
+      const isFun = item.dataset.expType === 'fun';
+      if (!isFun) {
+        item.style.display = type === 'fun' ? 'none' : '';
+      } else {
+        item.classList.toggle('exp-visible', type === 'fun');
+      }
+      if (isFun === (type === 'fun')) visible.push(item);
+    });
+    if (visible.length) visible[visible.length - 1].classList.add('tl-last-visible');
+  }
+
+  if (!timeline || reduceMotion) {
+    applyVisibility();
+    return;
+  }
+
+  const startHeight = timeline.getBoundingClientRect().height;
+  timeline.style.height = startHeight + 'px';
+  timeline.style.overflow = 'hidden';
+  timeline.classList.add('tl-transitioning');
+  void timeline.offsetHeight;
+  timeline.style.opacity = '0';
+
+  setTimeout(() => {
+    applyVisibility();
+    timeline.style.height = 'auto';
+    const endHeight = timeline.getBoundingClientRect().height;
+    timeline.style.height = startHeight + 'px';
+    void timeline.offsetHeight;
+    timeline.style.height = endHeight + 'px';
+    timeline.style.opacity = '1';
+    setTimeout(() => {
+      timeline.style.height = '';
+      timeline.style.overflow = '';
+      timeline.classList.remove('tl-transitioning');
+    }, 280);
+  }, 180);
 }
 document.addEventListener('DOMContentLoaded', () => filterExp('professional'));
 function openResearchModal(data) {
