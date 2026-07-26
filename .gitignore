@@ -21,3 +21,11 @@ package-lock.json
 
 # Ignore files created by MacOS
 .DS_Store
+
+# Ignore LaTeX build artifacts (CV.pdf itself is tracked)
+assets/files/CV/*.aux
+assets/files/CV/*.fdb_latexmk
+assets/files/CV/*.fls
+assets/files/CV/*.log
+assets/files/CV/*.out
+assets/files/CV/*.synctex.gz
