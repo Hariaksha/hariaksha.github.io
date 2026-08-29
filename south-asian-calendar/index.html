@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Asian Cultural Calendar — Aug 2026 to Apr 2027</title>
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-2:#fafafa;
+    --text:#1a1a1a;
+    --muted:#6b6b6b;
+    --line:#e2e2e2;
+    --line-strong:#c7c7c7;
+    --accent:#333333;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px;}
+
+  header{
+    padding:40px 20px 24px;
+    border-bottom:1px solid var(--line-strong);
+  }
+  header .inner{max-width:860px;margin:0 auto;}
+  h1{
+    font-size:26px;
+    font-weight:700;
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  .sub{
+    color:var(--muted);
+    font-size:14.5px;
+    max-width:640px;
+    margin:0 0 18px;
+  }
+  .stats{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--muted);}
+  .stats b{color:var(--text);}
+
+  .controls{
+    position:sticky; top:0; z-index:20;
+    background:rgba(255,255,255,0.97);
+    border-bottom:1px solid var(--line-strong);
+    padding:12px 20px;
+  }
+  .controls-inner{max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .filter-label{font-size:12px;color:var(--muted);margin-right:4px;}
+  .chip{
+    border:1px solid var(--line-strong);
+    background:#fff;
+    color:var(--text);
+    padding:5px 12px;
+    border-radius:5px;
+    font-size:13px;
+    cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:inherit;
+  }
+  .chip:hover{background:var(--bg-2);}
+  .chip .sw{width:8px;height:8px;border-radius:50%;display:inline-block;}
+  .chip.active{background:var(--text);color:#fff;border-color:var(--text);}
+  .reset-btn{
+    margin-left:auto;font-size:12.5px;color:var(--muted);background:none;border:none;
+    cursor:pointer;text-decoration:underline;
+    font-family:inherit;
+  }
+  .reset-btn:hover{color:var(--text);}
+
+  main{padding-top:10px;padding-bottom:40px;}
+  .month-block{margin-bottom:4px;}
+  .month-head{
+    padding:22px 0 8px;
+  }
+  .month-head h2{
+    font-size:15px;font-weight:700;margin:0;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--muted);
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+  }
+
+  table.events{width:100%;border-collapse:collapse;}
+  .event-row td{
+    vertical-align:top;
+    padding:12px 10px;
+    border-bottom:1px solid var(--line);
+  }
+  .event-row.hide{display:none;}
+  .event-row:hover td{background:var(--bg-2);}
+
+  .col-date{width:78px;white-space:nowrap;}
+  .date-dow{font-size:11px;color:var(--muted);}
+  .date-num{font-size:15px;font-weight:700;}
+
+  .col-name{width:auto;}
+  .event-name{font-weight:600;font-size:15px;}
+  .approx{font-size:11px;color:#a35b00;font-weight:600;margin-left:6px;}
+  .event-desc{color:var(--muted);font-size:13.5px;margin-top:3px;max-width:520px;}
+  .event-region{font-size:12px;color:var(--muted);font-style:italic;margin-top:3px;}
+
+  .col-tags{width:150px;text-align:right;}
+  .badge{
+    font-size:10.5px;font-weight:600;
+    padding:2px 8px;border-radius:4px;
+    display:inline-flex;align-items:center;gap:4px;
+    border:1px solid var(--line-strong);
+    margin:0 0 4px 0;
+    white-space:nowrap;
+  }
+  .badge .sw{width:6px;height:6px;border-radius:50%;}
+
+  .empty-state{
+    text-align:center;padding:60px 20px;color:var(--muted);font-size:15px;
+  }
+
+  footer{
+    max-width:860px;margin:0 auto;padding:20px 20px 40px;
+    border-top:1px solid var(--line-strong);
+    color:var(--muted);font-size:12.5px;line-height:1.7;
+  }
+
+  @media (max-width:640px){
+    .col-tags{display:none;}
+    table.events, table.events tbody, table.events tr, table.events td{display:block;width:100%;}
+    .event-row td{border-bottom:none;padding:4px 0;}
+    .event-row{border-bottom:1px solid var(--line);padding:10px 0;display:block;}
+    .col-date{display:inline-block;width:auto;margin-right:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>South Asian Cultural &amp; Religious Calendar</h1>
+    <p class="sub">Every major observance from August 27, 2026 through April 30, 2027 — Hindu, Muslim, Sikh, Jain, Buddhist, Christian, and national/civic days across India, Pakistan, Bangladesh, Sri Lanka, Nepal, Bhutan, Afghanistan, and the Tibetan diaspora.</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner" id="filterBar">
+    <span class="filter-label">Filter:</span>
+  </div>
+</div>
+
+<main class="wrap">
+  <div id="calendarRoot"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">No events match that filter.</div>
+</main>
+
+<footer>
+  Dates for lunar/lunisolar festivals (Hindu, Muslim, Buddhist, Sikh) are set by moon sighting and regional panchang calculations, so some may shift by a day depending on your community's local authority — double-check close to the date, especially for Ramadan/Eid and Losar. Fixed national/civic days are stable.
+</footer>
+
+<script>
+const EVENTS = [
+  // AUGUST 2026
+  {date:"2026-08-26", name:"Eid Milad-un-Nabi (Mawlid)", cats:["muslim"], approx:true, desc:"Commemorates the birth of Prophet Muhammad — gatherings, recitations, and processions.", region:"Pan-Muslim South Asia"},
+  {date:"2026-08-28", name:"Raksha Bandhan", cats:["hindu"], desc:"Sisters tie a rakhi thread on their brothers' wrists as a pledge of protection.", region:"Pan-Hindu"},
+
+  // SEPTEMBER 2026
+  {date:"2026-09-04", name:"Janmashtami", cats:["hindu"], desc:"Celebrates the birth of Lord Krishna — midnight prayers, fasting, Dahi Handi.", region:"Pan-Hindu"},
+  {date:"2026-09-14", name:"Ganesh Chaturthi begins", cats:["hindu"], desc:"Ten-day festival welcoming Lord Ganesha into homes and public pandals.", region:"Pan-Hindu, esp. Maharashtra"},
+  {date:"2026-09-25", name:"Ganesh Visarjan (Anant Chaturdashi)", cats:["hindu"], desc:"Closing day of Ganeshotsav — idols carried in procession and immersed in water.", region:"Pan-Hindu"},
+
+  // OCTOBER 2026
+  {date:"2026-10-12", name:"Sharad Navratri begins", cats:["hindu"], desc:"Nine nights honoring the goddess Durga — marked with garba and dandiya raas.", region:"Pan-Hindu"},
+  {date:"2026-10-20", name:"Dussehra / Vijayadashami", cats:["hindu"], desc:"Marks Lord Rama's victory over Ravana; effigies burned across North India.", region:"Pan-Hindu"},
+  {date:"2026-10-20", name:"Durga Puja (main day)", cats:["hindu"], desc:"The biggest festival of the Bengali calendar — pandals, idol immersion, feasting.", region:"Bengali (India &amp; Bangladesh)"},
+
+  // NOVEMBER 2026
+  {date:"2026-11-06", name:"Dhanteras", cats:["hindu"], desc:"Opens the five-day Diwali festival — traditionally a day to buy gold or new utensils.", region:"Pan-Hindu"},
+  {date:"2026-11-08", name:"Diwali (Lakshmi Puja)", cats:["hindu","sikh"], desc:"The festival of lights — homes lit with diyas, rangoli, family puja and sweets.", region:"Pan-South Asian"},
+  {date:"2026-11-08", name:"Bandi Chhor Divas", cats:["sikh"], desc:"Sikhs mark Guru Hargobind Ji's release from imprisonment, alongside Diwali.", region:"Sikh"},
+  {date:"2026-11-09", name:"Govardhan Puja", cats:["hindu"], desc:"Commemorates Krishna lifting Govardhan Hill to shelter villagers.", region:"North Indian"},
+  {date:"2026-11-10", name:"Bhai Dooj", cats:["hindu"], desc:"Closes the Diwali season, honoring the brother-sister bond.", region:"Pan-Hindu"},
+  {date:"2026-11-15", name:"Chhath Puja", cats:["hindu"], desc:"Four-day fasting festival honoring the Sun god — arghya offerings at sunrise/sunset.", region:"Bihari / Nepali"},
+  {date:"2026-11-24", name:"Guru Nanak Jayanti (Gurpurab)", cats:["sikh"], desc:"Celebrates the birth of Guru Nanak — akhand paths, kirtan, free langar meals.", region:"Sikh"},
+
+  // DECEMBER 2026
+  {date:"2026-12-16", name:"Victory Day (Bijoy Dibosh)", cats:["national"], desc:"Marks independence from Pakistan in 1971 — parades and national ceremonies.", region:"Bangladesh"},
+  {date:"2026-12-17", name:"National Day", cats:["national"], desc:"Marks the 1907 founding of the Wangchuck monarchy — Bhutan's founding-day holiday.", region:"Bhutan"},
+  {date:"2026-12-25", name:"Christmas", cats:["christian"], desc:"Celebrated by South Asia's Christian communities, especially Kerala, Goa, Northeast India, Pakistan, and Sri Lanka.", region:"South Asian Christian"},
+
+  // JANUARY 2027
+  {date:"2027-01-13", name:"Lohri", cats:["hindu","sikh"], desc:"Punjabi bonfire festival marking the end of winter and the sugarcane harvest.", region:"Punjabi"},
+  {date:"2027-01-14", name:"Makar Sankranti / Pongal / Magh Bihu", cats:["hindu"], desc:"Pan-South Asian harvest festival — known as Makar Sankranti (North/West India), Pongal (Tamil Nadu, 4-day festival), and Magh Bihu (Assam).", region:"Pan-South Asian"},
+  {date:"2027-01-24", name:"Shab-e-Barat", cats:["muslim"], approx:true, desc:"'Night of Forgiveness' — prayer vigils and remembrance, significant in Bangladesh and Pakistan.", region:"Pan-Muslim South Asia"},
+  {date:"2027-01-26", name:"Republic Day", cats:["national"], desc:"Commemorates the adoption of the Indian Constitution in 1950.", region:"India"},
+
+  // FEBRUARY 2027
+  {date:"2027-02-04", name:"Independence Day", cats:["national"], desc:"Marks independence from British rule in 1948.", region:"Sri Lanka"},
+  {date:"2027-02-07", name:"Losar (Tibetan / Bhutanese New Year)", cats:["buddhist"], approx:true, desc:"Himalayan Buddhist New Year, celebrated up to 15 days.", region:"Tibetan / Bhutanese / Himalayan"},
+  {date:"2027-02-08", name:"Ramadan begins", cats:["muslim"], approx:true, desc:"Start of the Islamic holy month of fasting — exact start depends on moon sighting.", region:"Pan-Muslim South Asia"},
+  {date:"2027-02-11", name:"Vasant Panchami / Saraswati Puja", cats:["hindu"], desc:"Honors Saraswati, goddess of knowledge and the arts; marks the start of spring.", region:"Pan-Hindu, incl. Bangladesh"},
+  {date:"2027-02-14", name:"Pohela Falgun", cats:["national"], desc:"First day of spring on the Bengali calendar — colorful traditional dress, music, and street celebrations.", region:"Bangladesh &amp; West Bengal"},
+  {date:"2027-02-19", name:"National Democracy Day", cats:["national"], desc:"Marks the end of Rana rule and the establishment of democracy in Nepal, 1951.", region:"Nepal"},
+  {date:"2027-02-21", name:"Ekushey / International Mother Language Day", cats:["national"], desc:"Commemorates the 1952 Language Movement martyrs; recognized by UNESCO worldwide.", region:"Bangladesh"},
+
+  // MARCH 2027
+  {date:"2027-03-06", name:"Maha Shivaratri", cats:["hindu"], desc:"The 'Great Night of Shiva' — fasting and an all-night vigil at Shiva temples.", region:"Pan-Hindu"},
+  {date:"2027-03-07", name:"Shab-e-Qadr (Night of Power)", cats:["muslim"], approx:true, desc:"Holiest night of Ramadan, commemorating the first revelation of the Quran.", region:"Pan-Muslim South Asia"},
+  {date:"2027-03-10", name:"Eid al-Fitr", cats:["muslim"], approx:true, desc:"Marks the end of Ramadan — communal prayers, new clothes, feasting, gift-giving.", region:"Pan-Muslim South Asia"},
+  {date:"2027-03-21", name:"Nowruz", cats:["national"], desc:"Persian/Afghan New Year, tied to the spring equinox — feasting, music, and family visits.", region:"Afghanistan"},
+  {date:"2027-03-22", name:"Holi", cats:["hindu"], desc:"Festival of colors marking spring and the triumph of good over evil; bonfires the night before.", region:"Pan-South Asian"},
+  {date:"2027-03-23", name:"Pakistan Day", cats:["national"], desc:"Commemorates the 1940 Lahore Resolution calling for a separate Muslim state.", region:"Pakistan"},
+  {date:"2027-03-26", name:"Independence Day", cats:["national"], desc:"Marks the 1971 declaration of independence from Pakistan.", region:"Bangladesh"},
+
+  // APRIL 2027
+  {date:"2027-04-07", name:"Ugadi / Gudi Padwa", cats:["hindu"], desc:"New Year for Telugu, Kannada, and Marathi communities; also opens Chaitra Navratri.", region:"Telugu / Kannada / Marathi"},
+  {date:"2027-04-13", name:"Nepali New Year (Bikram Sambat 2084)", cats:["hindu","national"], desc:"Nepal's official New Year — fairs, feasts, and cultural processions.", region:"Nepal"},
+  {date:"2027-04-14", name:"Vaisakhi / Baisakhi", cats:["sikh"], desc:"Sikh New Year and founding of the Khalsa in 1699 — nagar kirtan, bhangra/giddha.", region:"Sikh / Punjabi"},
+  {date:"2027-04-14", name:"Pohela Boishakh (Bengali New Year)", cats:["hindu","national"], desc:"New Year on the Bengali calendar — the iconic Mangal Shobhajatra procession.", region:"Bengali (India &amp; Bangladesh)"},
+  {date:"2027-04-14", name:"Puthandu (Tamil New Year) &amp; Vishu", cats:["hindu"], desc:"Tamil New Year and Kerala's Vishu fall the same day — kani, new clothes, family feasts.", region:"Tamil / Malayali"},
+  {date:"2027-04-14", name:"Bohag Bihu (Assamese New Year)", cats:["hindu"], desc:"The main Bihu festival, marking the Assamese New Year with folk dance and feasting.", region:"Assamese"},
+  {date:"2027-04-14", name:"Sinhala &amp; Tamil New Year", cats:["national"], desc:"Sri Lanka's biggest national holiday — shared by both Sinhala and Tamil communities.", region:"Sri Lanka"},
+  {date:"2027-04-15", name:"Ram Navami", cats:["hindu"], desc:"Celebrates the birth of Lord Rama, closing Chaitra Navratri.", region:"Pan-Hindu"},
+  {date:"2027-04-19", name:"Mahavir Jayanti", cats:["jain"], desc:"Commemorates the birth of Lord Mahavir, the final Jain Tirthankar.", region:"Jain"},
+  {date:"2027-04-20", name:"Hanuman Jayanti", cats:["hindu"], desc:"Celebrates the birth of Hanuman — Hanuman Chalisa recitations and temple visits.", region:"Pan-Hindu"},
+];
+
+const CATS = {
+  hindu:    {label:"Hindu",    color:"#c07a2b"},
+  muslim:   {label:"Muslim",   color:"#2e7d6b"},
+  sikh:     {label:"Sikh",     color:"#3a5fa0"},
+  jain:     {label:"Jain",     color:"#8a6d3b"},
+  buddhist: {label:"Buddhist", color:"#a13a3a"},
+  christian:{label:"Christian",color:"#6a4fa0"},
+  national: {label:"National / Civic", color:"#5a6b60"},
+};
+
+let activeFilter = null;
+
+function fmtDate(iso){
+  const d = new Date(iso + "T00:00:00");
+  const dow = d.toLocaleDateString('en-US',{weekday:'short'});
+  const mon = d.toLocaleDateString('en-US',{month:'short'});
+  const day = d.getDate();
+  return {dow, mon, day, monthKey: d.toLocaleDateString('en-US',{month:'long', year:'numeric'})};
+}
+
+function buildFilterBar(){
+  const bar = document.getElementById('filterBar');
+  Object.entries(CATS).forEach(([key, val])=>{
+    const chip = document.createElement('button');
+    chip.className = 'chip';
+    chip.dataset.cat = key;
+    chip.innerHTML = `<span class="sw" style="background:${val.color}"></span>${val.label}`;
+    chip.onclick = ()=>{
+      activeFilter = (activeFilter === key) ? null : key;
+      renderChips();
+      applyFilter();
+    };
+    bar.appendChild(chip);
+  });
+  const reset = document.createElement('button');
+  reset.className = 'reset-btn';
+  reset.textContent = 'Reset';
+  reset.onclick = ()=>{ activeFilter=null; renderChips(); applyFilter(); };
+  bar.appendChild(reset);
+}
+
+function renderChips(){
+  document.querySelectorAll('.chip').forEach(c=>{
+    c.classList.toggle('active', c.dataset.cat === activeFilter);
+  });
+}
+
+function applyFilter(){
+  let visibleCount = 0;
+  document.querySelectorAll('.event-row').forEach(el=>{
+    const cats = el.dataset.cats.split(',');
+    const show = !activeFilter || cats.includes(activeFilter);
+    el.classList.toggle('hide', !show);
+    if(show) visibleCount++;
+  });
+  document.querySelectorAll('.month-block').forEach(mb=>{
+    const anyVisible = mb.querySelectorAll('.event-row:not(.hide)').length > 0;
+    mb.style.display = anyVisible ? '' : 'none';
+  });
+  document.getElementById('emptyState').style.display = visibleCount ? 'none' : 'block';
+}
+
+function render(){
+  const root = document.getElementById('calendarRoot');
+  let currentMonth = null;
+  let monthBlock = null;
+  let tbody = null;
+
+  EVENTS.forEach(ev=>{
+    const {dow, mon, day, monthKey} = fmtDate(ev.date);
+    if(monthKey !== currentMonth){
+      currentMonth = monthKey;
+      monthBlock = document.createElement('div');
+      monthBlock.className = 'month-block';
+      const head = document.createElement('div');
+      head.className = 'month-head';
+      head.innerHTML = `<h2>${monthKey}</h2>`;
+      monthBlock.appendChild(head);
+
+      const table = document.createElement('table');
+      table.className = 'events';
+      tbody = document.createElement('tbody');
+      table.appendChild(tbody);
+      monthBlock.appendChild(table);
+
+      root.appendChild(monthBlock);
+    }
+
+    const badges = ev.cats.map(c=>{
+      const meta = CATS[c];
+      return `<span class="badge" style="color:${meta.color};border-color:${meta.color}66;"><span class="sw" style="background:${meta.color}"></span>${meta.label}</span>`;
+    }).join('');
+
+    const tr = document.createElement('tr');
+    tr.className = 'event-row';
+    tr.dataset.cats = ev.cats.join(',');
+    tr.innerHTML = `
+      <td class="col-date">
+        <div class="date-dow">${dow}, ${mon}</div>
+        <div class="date-num">${day}</div>
+      </td>
+      <td class="col-name">
+        <span class="event-name">${ev.name}</span>${ev.approx ? '<span class="approx">± date may shift</span>' : ''}
+        <div class="event-desc">${ev.desc}</div>
+        <div class="event-region">${ev.region}</div>
+      </td>
+      <td class="col-tags">${badges}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderStats(){
+  const stats = document.getElementById('stats');
+  const total = EVENTS.length;
+  const traditions = new Set(EVENTS.flatMap(e=>e.cats)).size;
+  const months = new Set(EVENTS.map(e=>fmtDate(e.date).monthKey)).size;
+  stats.innerHTML = `<span><b>${total}</b> observances</span><span><b>${traditions}</b> traditions</span><span><b>${months}</b> months</span>`;
+}
+
+buildFilterBar();
+render();
+renderStats();
+</script>
+</body>
+</html>
