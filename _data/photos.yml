@@ -1,0 +1,40 @@
+# One line per photo. place = an id from photo_places.yml; note is optional.
+# Image files live in assets/photos/full (1600px) and assets/photos/thumb (520px).
+- {place: berlin, file: berlin-2025-07-18-1.jpg, date: "2025-07-18", note: "Brandenburg Gate"}
+- {place: berlin, file: berlin-2025-07-20-1.jpg, date: "2025-07-20"}
+- {place: borobudur, file: borobudur-2024-09-14-1.jpg, date: "2024-09-14"}
+- {place: borobudur, file: borobudur-2024-09-14-2.jpg, date: "2024-09-14"}
+- {place: bromo, file: bromo-2024-10-26-1.jpg, date: "2024-10-26"}
+- {place: busan, file: busan-2024-12-14-1.jpg, date: "2024-12-14", note: "Temple"}
+- {place: florida-panhandle, file: florida-panhandle-2026-03-19-1.jpg, date: "2026-03-19"}
+- {place: glacier, file: glacier-2025-05-13-1.jpg, date: "2025-05-13"}
+- {place: glacier, file: glacier-2025-05-16-1.jpg, date: "2025-05-16"}
+- {place: hyderabad, file: hyderabad-2025-04-19-1.jpg, date: "2025-04-19"}
+- {place: ijen, file: ijen-2024-11-02-1.jpg, date: "2024-11-02"}
+- {place: ijen, file: ijen-2024-11-02-2.jpg, date: "2024-11-02"}
+- {place: jamestown, file: jamestown-2024-05-25-1.jpg, date: "2024-05-25"}
+- {place: kuala-lumpur, file: kuala-lumpur-2024-12-23-1.jpg, date: "2024-12-23", note: "Petronas Towers"}
+- {place: malang, file: malang-2024-08-24-1.jpg, date: "2024-08-24", note: "First bakso"}
+- {place: malang, file: malang-2024-08-25-1.jpg, date: "2024-08-25", note: "Universitas Negeri Malang, \"The Learning University\""}
+- {place: malang, file: malang-2024-08-31-1.jpg, date: "2024-08-31"}
+- {place: malang, file: malang-2024-10-27-1.jpg, date: "2024-10-27"}
+- {place: malang, file: malang-2024-12-04-1.jpg, date: "2024-12-04", note: "SEAFLI group at the Rektorat"}
+- {place: malang, file: malang-2024-12-04-2.jpg, date: "2024-12-04", note: "SEAFLI group at the Rektorat"}
+- {place: malang, file: malang-2024-12-05-1.jpg, date: "2024-12-05", note: "SEAFLI closing ceremony"}
+- {place: milan, file: milan-2025-08-14-1.jpg, date: "2025-08-14"}
+- {place: milan, file: milan-2025-08-14-2.jpg, date: "2025-08-14"}
+- {place: milan, file: milan-2025-08-15-1.jpg, date: "2025-08-15"}
+- {place: new-york, file: new-york-2025-11-13-1.jpg, date: "2025-11-13"}
+- {place: pontianak, file: pontianak-2025-01-29-1.jpg, date: "2025-01-29"}
+- {place: seoul, file: seoul-2024-12-11-1.jpg, date: "2024-12-11", note: "Gyeongbokgung Palace"}
+- {place: siem-reap, file: siem-reap-2025-04-14-1.jpg, date: "2025-04-14"}
+- {place: siem-reap, file: siem-reap-2025-04-14-2.jpg, date: "2025-04-14"}
+- {place: switzerland, file: switzerland-2025-08-09-1.jpg, date: "2025-08-09"}
+- {place: switzerland, file: switzerland-2025-08-09-2.jpg, date: "2025-08-09"}
+- {place: tanjung-puting, file: tanjung-puting-2024-10-14-1.jpg, date: "2024-10-14", note: "Near Pangkalan Bun"}
+- {place: tuscaloosa, file: tuscaloosa-2026-04-03-1.jpg, date: "2026-04-03"}
+- {place: venice, file: venice-2025-08-13-1.jpg, date: "2025-08-13"}
+- {place: venice, file: venice-2025-08-13-2.jpg, date: "2025-08-13"}
+- {place: washington-dc, file: washington-dc-2023-12-23-1.jpg, date: "2023-12-23", note: "Enchant Christmas"}
+- {place: washington-dc, file: washington-dc-2025-12-26-1.jpg, date: "2025-12-26"}
+- {place: yogyakarta, file: yogyakarta-2024-09-14-1.jpg, date: "2024-09-14"}

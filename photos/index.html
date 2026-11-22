@@ -1,0 +1,66 @@
+---
+layout: default
+title: "Photos | Hari Gunda"
+description: "Photos from places around the world, on an interactive globe."
+---
+
+<link rel="stylesheet" href="/photos/photos.css">
+
+<section id="photos" class="photos-page">
+  <p class="section-label">Photos</p>
+  <p class="photos-intro">Click a glowing pin to zoom in. Drag to rotate.</p>
+
+  <div class="photos-stage" id="globe-stage">
+    <canvas id="globe" role="img" aria-label="Interactive globe with pins where photos were taken. Use the list of places below the globe to browse with a keyboard."></canvas>
+    <div class="photos-tip" id="globe-tip" hidden></div>
+
+    <aside class="photos-panel" id="photos-panel" aria-label="Photos from the selected place" aria-hidden="true">
+      <div class="pp-head">
+        <div>
+          <h2 class="pp-title" id="pp-title"></h2>
+          <p class="pp-meta" id="pp-meta"></p>
+        </div>
+        <button type="button" class="pp-close" id="pp-close" aria-label="Close photos panel">&times;</button>
+      </div>
+      <div class="pp-grid" id="pp-grid"></div>
+    </aside>
+  </div>
+
+  <p class="photos-hint" aria-hidden="true">click a pin to zoom &middot; drag to rotate</p>
+
+  <ul class="photos-places" id="photos-places" aria-label="Places with photos"></ul>
+
+  <noscript>
+    <div class="photos-noscript">
+      {% for place in site.data.photo_places %}
+      <h3>{{ place.name }}, {{ place.region }}</h3>
+      <div class="pp-grid">
+        {% for ph in site.data.photos %}{% if ph.place == place.id %}
+        <a href="/assets/photos/full/{{ ph.file }}"><img src="/assets/photos/thumb/{{ ph.file }}" alt="{{ place.name }}{% if ph.note %}, {{ ph.note }}{% endif %}" loading="lazy"></a>
+        {% endif %}{% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </noscript>
+
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close photo viewer">&times;</button>
+    <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous photo">&#8249;</button>
+    <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next photo">&#8250;</button>
+    <figure class="lb-fig">
+      <img class="lb-img" id="lb-img" alt="">
+      <figcaption class="lb-cap">
+        <span class="lb-where" id="lb-where"></span>
+        <span class="lb-note" id="lb-note"></span>
+        <span class="lb-count" id="lb-count"></span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<script type="application/json" id="photos-data">
+{ "places": {{ site.data.photo_places | jsonify }}, "photos": {{ site.data.photos | jsonify }} }
+</script>
+<script src="/photos/vendor/d3.min.js" defer></script>
+<script src="/photos/vendor/topojson-client.min.js" defer></script>
+<script src="/photos/photos.js" defer></script>

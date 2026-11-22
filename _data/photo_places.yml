@@ -1,0 +1,23 @@
+# One entry per pin on the Photos globe. Use city/region centres, never exact GPS.
+- {id: milan, name: "Milan", region: "Italy", lat: 45.4642, lon: 9.19}
+- {id: venice, name: "Venice", region: "Italy", lat: 45.4408, lon: 12.3155}
+- {id: switzerland, name: "Furka & Grimsel", region: "Switzerland", lat: 46.6, lon: 8.35}
+- {id: hyderabad, name: "Hyderabad", region: "India", lat: 17.385, lon: 78.4867}
+- {id: borobudur, name: "Borobudur", region: "Central Java, Indonesia", lat: -7.6079, lon: 110.2038}
+- {id: yogyakarta, name: "Yogyakarta", region: "Central Java, Indonesia", lat: -7.7956, lon: 110.3695}
+- {id: ijen, name: "Ijen", region: "East Java, Indonesia", lat: -8.06, lon: 114.24}
+- {id: malang, name: "Malang", region: "East Java, Indonesia", lat: -7.9666, lon: 112.6326}
+- {id: bromo, name: "Mount Bromo", region: "East Java, Indonesia", lat: -7.9425, lon: 112.953}
+- {id: pontianak, name: "Pontianak", region: "West Kalimantan, Indonesia", lat: -0.0263, lon: 109.3425}
+- {id: tanjung-puting, name: "Tanjung Puting National Park", region: "Central Kalimantan, Indonesia", lat: -2.75, lon: 111.9}
+- {id: siem-reap, name: "Siem Reap", region: "Cambodia", lat: 13.3671, lon: 103.8448}
+- {id: kuala-lumpur, name: "Kuala Lumpur", region: "Malaysia", lat: 3.139, lon: 101.6869}
+- {id: seoul, name: "Seoul", region: "South Korea", lat: 37.5665, lon: 126.978}
+- {id: busan, name: "Busan", region: "South Korea", lat: 35.1796, lon: 129.0756}
+- {id: berlin, name: "Berlin", region: "Germany", lat: 52.52, lon: 13.405}
+- {id: washington-dc, name: "Washington, DC", region: "United States", lat: 38.9072, lon: -77.0369}
+- {id: new-york, name: "New York City", region: "United States", lat: 40.7128, lon: -74.006}
+- {id: jamestown, name: "Jamestown, Virginia", region: "United States", lat: 37.2087, lon: -76.7775}
+- {id: florida-panhandle, name: "Florida Panhandle", region: "United States", lat: 30.4, lon: -86.7}
+- {id: tuscaloosa, name: "Tuscaloosa, Alabama", region: "United States", lat: 33.2098, lon: -87.5692}
+- {id: glacier, name: "Glacier National Park", region: "Montana, United States", lat: 48.7596, lon: -113.787}
