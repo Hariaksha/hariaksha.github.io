@@ -109,7 +109,7 @@
 }
 .pp-thumb {
   position: relative; padding: 0; border: 0; background: var(--bg-alt); border-radius: 6px;
-  aspect-ratio: 1; overflow: hidden; cursor: var(--cursor-pointer);
+  aspect-ratio: 1; overflow: hidden; overflow: clip; cursor: var(--cursor-pointer);
 }
 .pp-thumb img {
   width: 100%; height: 100%; object-fit: cover; display: block;
