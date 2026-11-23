@@ -237,7 +237,7 @@ section:last-of-type { border-bottom: none; }
 /* ── Hero ── */
 #hero { padding-top: 3rem; padding-bottom: 5rem; }
 .hero-grid {
-    display: grid; grid-template-columns: 1fr 170px; gap: 3rem; align-items: start;
+    display: grid; grid-template-columns: 1fr 250px; gap: 3rem; align-items: start;
 }
 .hero-tagline {
     font-size: 0.73rem; font-weight: 600; letter-spacing: 0.12em;
@@ -291,7 +291,8 @@ section:last-of-type { border-bottom: none; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 10%;
+    object-position: center 15%;
+    aspect-ratio: 4 / 5;
 }
 .photo-placeholder { font-size: 0.7rem; color: var(--accent-mid); text-align: center; padding: 1rem; border: 1.5px dashed var(--accent-mid); border-radius: 6px; margin: 6px; }
 
