@@ -28,3 +28,4 @@
 - {id: boston, name: "Boston", region: "Massachusetts, United States", lat: 42.3601, lon: -71.0589}
 - {id: montgomery, name: "Montgomery, Alabama", region: "United States", lat: 32.3668, lon: -86.3}
 - {id: chicago, name: "Chicago", region: "Illinois, United States", lat: 41.8781, lon: -87.6298}
+- {id: bonn, name: "Bonn", region: "Germany", lat: 50.7374, lon: 7.0982}
