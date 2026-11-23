@@ -60,9 +60,6 @@ hariaksha.github.io/
 │       └── CV/
 │           ├── CV.tex          # LaTeX source of truth for the CV
 │           └── CV.pdf          # Compiled output, served to visitors
-├── coptic-binding/            # Project sub-page (standalone, non-Jekyll)
-├── ethiopian-bookbinding/      # Project sub-page (standalone, non-Jekyll)
-├── french-link-stitch/         # Project sub-page (standalone, non-Jekyll)
 ├── .devcontainer/              # Dev container config
 └── .github/workflows/
     ├── scrape_talks.yml        # Existing talk-location scraper
