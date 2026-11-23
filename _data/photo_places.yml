@@ -35,3 +35,8 @@
 - {id: amsterdam, name: "Amsterdam", region: "Netherlands", lat: 52.3676, lon: 4.9041}
 - {id: brussels, name: "Brussels", region: "Belgium", lat: 50.8503, lon: 4.3517}
 - {id: jakarta, name: "Jakarta", region: "Indonesia", lat: -6.2088, lon: 106.8456}
+- {id: atlanta, name: "Atlanta, Georgia", region: "United States", lat: 33.749, lon: -84.388}
+- {id: savannah, name: "Savannah, Georgia", region: "United States", lat: 32.0809, lon: -81.0912}
+- {id: madison, name: "Madison, Wisconsin", region: "United States", lat: 43.0731, lon: -89.4012}
+- {id: bunaken, name: "Bunaken National Park", region: "North Sulawesi, Indonesia", lat: 1.6, lon: 124.77}
+- {id: tumpak-sewu, name: "Tumpak Sewu", region: "East Java, Indonesia", lat: -8.2186, lon: 112.9139}
