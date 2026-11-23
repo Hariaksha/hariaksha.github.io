@@ -33,3 +33,5 @@
 - {id: hamburg, name: "Hamburg", region: "Germany", lat: 53.5511, lon: 9.9937}
 - {id: basel, name: "Basel", region: "Switzerland", lat: 47.5596, lon: 7.5886}
 - {id: amsterdam, name: "Amsterdam", region: "Netherlands", lat: 52.3676, lon: 4.9041}
+- {id: brussels, name: "Brussels", region: "Belgium", lat: 50.8503, lon: 4.3517}
+- {id: jakarta, name: "Jakarta", region: "Indonesia", lat: -6.2088, lon: 106.8456}
