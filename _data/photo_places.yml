@@ -21,3 +21,7 @@
 - {id: florida-panhandle, name: "Florida Panhandle", region: "United States", lat: 30.4, lon: -86.7}
 - {id: tuscaloosa, name: "Tuscaloosa, Alabama", region: "United States", lat: 33.2098, lon: -87.5692}
 - {id: glacier, name: "Glacier National Park", region: "Montana, United States", lat: 48.7596, lon: -113.787}
+- {id: paderborn, name: "Paderborn", region: "Germany", lat: 51.7189, lon: 8.7575}
+- {id: new-orleans, name: "New Orleans", region: "Louisiana, United States", lat: 29.9511, lon: -90.0715}
+- {id: northern-virginia, name: "Northern Virginia", region: "Virginia, United States", lat: 38.9187, lon: -77.2311}
+- {id: cameron-highlands, name: "Cameron Highlands", region: "Malaysia", lat: 4.47, lon: 101.38}
