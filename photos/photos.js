@@ -43,7 +43,8 @@
   });
 
   var dateFmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
-  function fmtDate(s) { return dateFmt.format(new Date(s + 'T00:00:00Z')); }
+  var monthFmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', timeZone: 'UTC' });
+  function fmtDate(s) { return s.length === 7 ? monthFmt.format(new Date(s + '-01T00:00:00Z')) : dateFmt.format(new Date(s + 'T00:00:00Z')); }
   function placeLabel(p) { return p.name + ', ' + p.region; }
   function plural(n) { return n + (n === 1 ? ' photo' : ' photos'); }
 

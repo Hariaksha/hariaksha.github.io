@@ -1,4 +1,5 @@
 # One line per photo. place = an id from photo_places.yml; note is optional.
+# date can be "YYYY-MM-DD" or just "YYYY-MM" when the exact day is unknown.
 # Image files live in assets/photos/full (1600px) and assets/photos/thumb (520px).
 - {place: berlin, file: berlin-2025-07-18-1.jpg, date: "2025-07-18", note: "Brandenburg Gate"}
 - {place: berlin, file: berlin-2025-07-20-1.jpg, date: "2025-07-20"}
@@ -93,3 +94,12 @@
 - {place: brussels, file: brussels-2025-06-16-1.jpg, date: "2025-06-16"}
 - {place: brussels, file: brussels-2025-06-17-1.jpg, date: "2025-06-17"}
 - {place: jakarta, file: jakarta-2025-04-24-1.jpg, date: "2025-04-24", note: "Monas"}
+- {place: pontianak, file: pontianak-2025-03-12-1.jpg, date: "2025-03-12"}
+- {place: pontianak, file: pontianak-2025-03-20-1.jpg, date: "2025-03-20"}
+- {place: pontianak, file: pontianak-2025-03-20-2.jpg, date: "2025-03-20"}
+- {place: pontianak, file: pontianak-2025-04-24-1.jpg, date: "2025-04-24"}
+- {place: brussels, file: brussels-2025-06-1.jpg, date: "2025-06", note: "European Parliament"}
+- {place: brussels, file: brussels-2025-06-2.jpg, date: "2025-06", note: "Manneken Pis"}
+- {place: brussels, file: brussels-2025-06-3.jpg, date: "2025-06"}
+- {place: pontianak, file: pontianak-2025-03-1.jpg, date: "2025-03"}
+- {place: pontianak, file: pontianak-2025-03-2.jpg, date: "2025-03"}
