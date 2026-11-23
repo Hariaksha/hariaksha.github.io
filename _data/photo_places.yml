@@ -25,3 +25,5 @@
 - {id: new-orleans, name: "New Orleans", region: "Louisiana, United States", lat: 29.9511, lon: -90.0715}
 - {id: northern-virginia, name: "Northern Virginia", region: "Virginia, United States", lat: 38.9187, lon: -77.2311}
 - {id: cameron-highlands, name: "Cameron Highlands", region: "Malaysia", lat: 4.47, lon: 101.38}
+- {id: boston, name: "Boston", region: "Massachusetts, United States", lat: 42.3601, lon: -71.0589}
+- {id: montgomery, name: "Montgomery, Alabama", region: "United States", lat: 32.3668, lon: -86.3}
